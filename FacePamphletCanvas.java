@@ -1,4 +1,3 @@
-
 /*
  * File: FacePamphletCanvas.java
  * -----------------------------
@@ -8,30 +7,25 @@
  */
 
 import acm.graphics.*;
-
 import java.awt.*;
-import java.awt.event.ComponentEvent;
 import java.util.*;
-
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 public class FacePamphletCanvas extends GCanvas implements FacePamphletConstants {
 
-	private GLabel message = new GLabel("");
+	private GLabel msg;
 	private GLabel name;
-	private GLabel age;
-	private GLabel gender;
-	private GLabel friends;
-	private GLabel friend;
+	private GLabel status;
+	private GImage image;
 
 	/**
 	 * Constructor This method takes care of any initialization needed for the
 	 * display
 	 */
 	public FacePamphletCanvas() {
-		add(message);
+		msg = null;
+		name = null;
+		status = null;
+		image = null;
 	}
 
 	/**
@@ -39,12 +33,16 @@ public class FacePamphletCanvas extends GCanvas implements FacePamphletConstants
 	 * time this method is called, the previously displayed message (if any) is
 	 * replaced by the new message text passed in.
 	 */
-
 	public void showMessage(String msg) {
-		remove(message);
-		message = new GLabel(msg);
-		message.setFont(MESSAGE_FONT);
-		add(message, (getWidth() - message.getWidth()) / 2, getHeight() - BOTTOM_MESSAGE_MARGIN);
+		if (!msg.equals("")) {
+			if (this.msg != null)
+				remove(this.msg);
+
+			this.msg = new GLabel((msg));
+			this.msg.setFont(MESSAGE_FONT);
+
+			add(this.msg, (getWidth() - this.msg.getWidth()) / 2, getHeight() - BOTTOM_MESSAGE_MARGIN);
+		}
 	}
 
 	/**
@@ -57,106 +55,73 @@ public class FacePamphletCanvas extends GCanvas implements FacePamphletConstants
 	 */
 	public void displayProfile(FacePamphletProfile profile) {
 		removeAll();
-		displayName(profile);
-		displayImage(profile);
-		displayStatus(profile);
-		displayFriends(profile);
-		displayAge(profile);
-		displayGender(profile);
+
+		displayName(profile.getName()); // displays name of the profile
+
+		displayImage(profile.getImage()); // displays image of the profile
+
+		displayStatus(profile.getStatus()); // displays status of the profile
+
+		displayFriends(profile.getFriends()); // displays friend list of the profile
 	}
 
-	private void displayName(FacePamphletProfile profile) {
-		name = new GLabel(profile.getName());
-		add(name, LEFT_MARGIN, TOP_MARGIN + name.getHeight());
-		name.setFont(PROFILE_NAME_FONT);
-		name.setColor(Color.BLUE);
-		add(name);
+	/** Creates new GLabel for selected profile */
+	private void displayName(String name) {
+		this.name = new GLabel(name);
+		this.name.setFont(PROFILE_NAME_FONT);
+		this.name.setColor(Color.blue);
+		add(this.name, LEFT_MARGIN, TOP_MARGIN + this.name.getAscent());
 	}
 
-	private void displayImage(FacePamphletProfile profile) {
-		if (profile.getImage() != null) {
-			profile.getImage().scale(IMAGE_WIDTH / profile.getImage().getWidth(),
-					IMAGE_HEIGHT / profile.getImage().getHeight());
-			add(profile.getImage(), LEFT_MARGIN, (TOP_MARGIN + IMAGE_MARGIN + name.getHeight()));
+	/**
+	 * Creates new GImage for the selected profile. if passed on image is null, then
+	 * it creates empty GRect, with No Image GLabel in the middle
+	 */
+	private void displayImage(GImage image) {
+		if (image != null) {
+			this.image = image;
+			this.image.setSize(IMAGE_WIDTH, IMAGE_HEIGHT);
+			add(this.image, LEFT_MARGIN, this.name.getY() + IMAGE_MARGIN);
 		} else {
-			GRect noImage = new GRect(LEFT_MARGIN, TOP_MARGIN + IMAGE_MARGIN + name.getHeight(), IMAGE_WIDTH,
-					IMAGE_HEIGHT);
-			add(noImage);
+			noImage();
+		}
 
-			GLabel noImageLabel = new GLabel("No Image");
-			noImageLabel.setFont(PROFILE_IMAGE_FONT);
-			add(noImageLabel, LEFT_MARGIN + IMAGE_WIDTH / 2 - noImageLabel.getWidth() / 2,
-					TOP_MARGIN + IMAGE_MARGIN + name.getHeight() + IMAGE_HEIGHT / 2);
+	}
+
+	/** Creates Empty GRect and GLabel with No Image text */
+	private void noImage() {
+		GRect rect = new GRect(LEFT_MARGIN, this.name.getY() + IMAGE_MARGIN, IMAGE_WIDTH, IMAGE_HEIGHT);
+		add(rect);
+
+		GLabel text = new GLabel("No Image");
+
+		add(text, rect.getX() + (IMAGE_WIDTH - text.getWidth()) / 2,
+				rect.getY() + (IMAGE_HEIGHT - text.getHeight()) / 2);
+	}
+
+	/** Creates new GLabel with the passed on status of the profile */
+	private void displayStatus(String status) {
+		this.status = new GLabel(status);
+		this.status.setFont(PROFILE_STATUS_FONT);
+
+		add(this.status, LEFT_MARGIN, this.name.getY() + this.name.getHeight() + IMAGE_MARGIN + IMAGE_HEIGHT
+				+ STATUS_MARGIN + this.status.getAscent());
+
+	}
+
+	/** Creates several GLabels of the names in the selected profile friend list */
+	private void displayFriends(Iterator<String> friends) {
+		GLabel label = new GLabel("Friends:");
+		label.setFont(PROFILE_FRIEND_LABEL_FONT);
+		add(label, LEFT_MARGIN + IMAGE_WIDTH + label.getWidth(), name.getY());
+
+		if (friends != null) {
+			while (friends.hasNext()) {
+				label = new GLabel(friends.next(), label.getX(), label.getY() + label.getHeight());
+				label.setFont(PROFILE_FRIEND_FONT);
+				add(label);
+			}
 		}
 	}
 
-	private void displayStatus(FacePamphletProfile profile) {
-		if (profile.getStatus() == "") {
-			GLabel status = new GLabel("No current status");
-			status.setFont(PROFILE_STATUS_FONT);
-			add(status, LEFT_MARGIN, TOP_MARGIN + IMAGE_MARGIN + IMAGE_HEIGHT + STATUS_MARGIN + name.getHeight());
-		} else {
-			GLabel status = new GLabel(profile.getName() + " is " + profile.getStatus());
-			status.setFont(PROFILE_STATUS_FONT);
-			add(status, LEFT_MARGIN, TOP_MARGIN + IMAGE_MARGIN + IMAGE_HEIGHT + STATUS_MARGIN + name.getHeight());
-		}
-	}
-
-	private void displayFriends(FacePamphletProfile profile) {
-		GLabel friends = new GLabel("Friends");
-		friends.setFont(PROFILE_FRIEND_LABEL_FONT);
-		add(friends, getWidth() / 2, TOP_MARGIN + name.getHeight());
-		Iterator<String> iterator = profile.getFriends();
-		int x = -1;
-		while (iterator.hasNext()) {
-			GLabel friend = new GLabel(iterator.next());
-			x++;
-			friend.setFont(PROFILE_FRIEND_FONT);
-			add(friend, getWidth() / 2, TOP_MARGIN + friends.getHeight() + 2 + name.getHeight() + friends.getHeight()
-					+ (x * (2 + friend.getHeight())));
-		}
-	}
-
-	public void displayFriendsOfFriend(FacePamphletProfile profile) {
-		friends = new GLabel(profile.getName() + "'s friends:");
-		friends.setFont(PROFILE_FRIEND_LABEL_FONT);
-		add(friends, getWidth() / 4 * 3, TOP_MARGIN + name.getHeight());
-		int x = -1;
-		Iterator<String> iterator = profile.getFriends();
-		while (iterator.hasNext()) {
-			x++;
-			friend = new GLabel(iterator.next());
-			friend.setFont(PROFILE_FRIEND_FONT);
-			add(friend, getWidth() / 4 * 3, TOP_MARGIN + friends.getHeight() + 2 + name.getHeight()
-					+ friends.getHeight() + (x * (2 + friend.getHeight())));
-		}
-	}
-
-	private void displayAge(FacePamphletProfile profile) {
-		if (profile.getAge() == 0) {
-			age = new GLabel("Profile age is unknown");
-			age.setFont(PROFILE_STATUS_FONT);
-			add(age, LEFT_MARGIN,
-					TOP_MARGIN + IMAGE_MARGIN + IMAGE_HEIGHT + STATUS_MARGIN + name.getHeight() + age.getHeight());
-		} else {
-			GLabel age = new GLabel("Age: " + profile.getAge());
-			age.setFont(PROFILE_STATUS_FONT);
-			add(age, LEFT_MARGIN,
-					TOP_MARGIN + IMAGE_MARGIN + IMAGE_HEIGHT + STATUS_MARGIN + name.getHeight() + age.getHeight());
-		}
-	}
-
-	private void displayGender(FacePamphletProfile profile) {
-		if (profile.getGender() == "") {
-			gender = new GLabel("Profile gender is unknown");
-			gender.setFont(PROFILE_STATUS_FONT);
-			add(gender, LEFT_MARGIN, TOP_MARGIN + IMAGE_MARGIN + IMAGE_HEIGHT + STATUS_MARGIN + name.getHeight()
-					+ age.getHeight() + gender.getHeight());
-		} else {
-			gender = new GLabel("Profile Gender: " + profile.getGender());
-			gender.setFont(PROFILE_STATUS_FONT);
-			add(gender, LEFT_MARGIN, TOP_MARGIN + IMAGE_MARGIN + IMAGE_HEIGHT + STATUS_MARGIN + name.getHeight()
-					+ age.getHeight() + gender.getHeight());
-		}
-	}
 }

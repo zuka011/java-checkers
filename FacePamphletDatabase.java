@@ -1,4 +1,3 @@
-
 /*
  * File: FacePamphletDatabase.java
  * -------------------------------
@@ -11,14 +10,13 @@ import java.util.*;
 
 public class FacePamphletDatabase implements FacePamphletConstants {
 
-	private HashMap<String, FacePamphletProfile> map = new HashMap<String, FacePamphletProfile>();
-	private ArrayList<String> names = new ArrayList<String>();
-
 	/**
 	 * Constructor This method takes care of any initialization needed for the
 	 * database.
 	 */
 	public FacePamphletDatabase() {
+		// You fill this in
+		data = new HashMap<String, FacePamphletProfile>();
 
 	}
 
@@ -27,28 +25,8 @@ public class FacePamphletDatabase implements FacePamphletConstants {
 	 * with the profile is the same as an existing name in the database, the
 	 * existing profile is replaced by the new profile passed in.
 	 */
-
 	public void addProfile(FacePamphletProfile profile) {
-		if (!map.containsKey(profile.getName())) {
-			map.put(profile.getName(), profile);
-			names.add(profile.getName());
-		}
-		if (map.containsKey(profile.getName()) == true) {
-			map.replace(profile.getName(), profile);
-		}
-	}
-
-	public String findName(String str) {
-		String friends = "";
-		for (int i = 0; i < names.size(); i++) {
-			map.get(names.get(i)).getFriends();
-			while (map.get(names.get(i)).getFriends().hasNext()) {
-				if (str.equals(map.get(names.get(i)).getFriends().next())) {
-					friends += map.get(names.get(i)).getName() + ",";
-				}
-			}
-		}
-		return friends;
+		data.put(profile.getName(), profile);
 	}
 
 	/**
@@ -57,10 +35,7 @@ public class FacePamphletDatabase implements FacePamphletConstants {
 	 * method returns null.
 	 */
 	public FacePamphletProfile getProfile(String name) {
-		if (map.containsKey(name) == true) {
-			return map.get(name);
-		}
-		return null;
+		return data.get(name);
 	}
 
 	/**
@@ -68,15 +43,25 @@ public class FacePamphletDatabase implements FacePamphletConstants {
 	 * database. It also updates the list of friends of all other profiles in the
 	 * database to make sure that this name is removed from the list of friends of
 	 * any other profile.
-	 *
+	 * 
 	 * If there is no profile in the database with the given name, then the database
 	 * is unchanged after calling this method.
 	 */
-
 	public void deleteProfile(String name) {
-		if (map.containsKey(name) == true) {
-			map.remove(name);
+		Iterator<String> list = data.get(name).getFriends();
+		FacePamphletProfile friend;
+
+		if (list != null) {
+			while (list.hasNext()) {
+
+				friend = data.get(list.next());
+
+				friend.removeFriend(name);
+			}
 		}
+
+		data.remove(name);
+
 	}
 
 	/**
@@ -84,9 +69,11 @@ public class FacePamphletDatabase implements FacePamphletConstants {
 	 * given name. It returns false otherwise.
 	 */
 	public boolean containsProfile(String name) {
-		if (map.containsKey(name) == true) {
+		if (data.containsKey(name))
 			return true;
-		}
 		return false;
 	}
+
+	private HashMap<String, FacePamphletProfile> data;
+
 }
