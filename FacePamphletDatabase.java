@@ -9,7 +9,7 @@
 
 import java.util.*;
 
-public class FacePamphletDatabase implements FacePamphletConstants {
+public class FacePamphletDatabase implements FacePamphletConstantsExtension {
 
 	/**
 	 * Constructor This method takes care of any initialization needed for the
