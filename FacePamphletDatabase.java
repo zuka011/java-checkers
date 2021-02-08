@@ -52,7 +52,7 @@ public class FacePamphletDatabase implements FacePamphletConstantsExtension {
 		profileMap.remove(name);
 		Iterator<FacePamphletProfileExtension> iterator = profileMap.values().iterator();
 		while (iterator.hasNext()) {
-			FacePamphletProfile profile = iterator.next();
+			FacePamphletProfileExtension profile = iterator.next();
 			profile.removeFriend(name);
 		}
 	}
