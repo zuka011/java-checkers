@@ -9,7 +9,6 @@
 
 import java.util.*;
 
-import images.FacePamphletProfileExtension;
 
 public class FacePamphletDatabase implements FacePamphletConstantsExtension {
 
