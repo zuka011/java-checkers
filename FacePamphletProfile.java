@@ -9,13 +9,22 @@
  */
 
 import acm.graphics.*;
+import acm.util.ErrorException;
+
 import java.util.*;
 
 public class FacePamphletProfile implements FacePamphletConstants {
-	private String name;
+
+	/** Saves names of friends */
 	private ArrayList<String> friends;
-	private GImage image;
+
+	/** Regular info */
+	private String name;
 	private String status;
+
+	/** For saving image info */
+	private GImage image;
+	private String imageName;
 
 	/**
 	 * Constructor This method takes care of any initialization needed for the
@@ -26,6 +35,7 @@ public class FacePamphletProfile implements FacePamphletConstants {
 		this.friends = new ArrayList<String>();
 		this.status = "No current status";
 		this.image = null;
+		this.imageName = "";
 	}
 
 	/** This method returns the name associated with the profile. */
@@ -42,8 +52,8 @@ public class FacePamphletProfile implements FacePamphletConstants {
 	}
 
 	/** This method sets the image associated with the profile. */
-	public void setImage(GImage image) {
-		this.image = image;
+	public Boolean setImage(String image) {
+		return openImage(image);
 	}
 
 	/**
@@ -112,12 +122,13 @@ public class FacePamphletProfile implements FacePamphletConstants {
 	public String toString() {
 		String str = "";
 
-		str += this.name + " ";
+		str += this.name + ";";
+		str += "{" + this.imageName + "};";
 		str += "(" + this.status + ")";
-		str += ":";
+		str += ";";
 
 		for (int i = 0; i < friends.size(); i++) {
-			str += " " + friends.get(i);
+			str += ";" + friends.get(i);
 		}
 
 		return str;
@@ -126,6 +137,30 @@ public class FacePamphletProfile implements FacePamphletConstants {
 	/** Checks if this person is friends with selected one */
 	public Boolean isFriendsWith(String friend) {
 		return friends.contains(friend);
+	}
+
+	/**
+	 * Opens the image file if it exists and sets imageName value to the current
+	 * image name, so when data is saved to txt file and then it is recovered, it
+	 * becomes easier to set images
+	 */
+	private Boolean openImage(String text) {
+		GImage temp;
+
+		try {
+
+			temp = new GImage("images/" + text);
+
+			if (temp != null) {
+				this.imageName = text;
+				this.image = temp;
+			}
+			return true;
+
+		} catch (ErrorException ex) {
+
+			return false;
+		}
 	}
 
 }

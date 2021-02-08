@@ -103,12 +103,16 @@ public class FacePamphlet extends Program implements FacePamphletConstants {
 		} else {
 			canvas.showMessage("Please select profile to add a friend");
 		}
+		data.saveProfileData();
 	}
 
 	/** Updates status for current user */
 	private void setStatus(String text) {
 		if (user != null) {
-			if (!text.equals("")) {
+			if (text.contains("(") || text.contains(")") || text.contains("{") || text.contains("}")
+					|| text.contains(":")) {
+				canvas.showMessage("Inputed info should not contain ani of next simbols " + '"' + "( ) { } :" + '"');
+			} else if (!text.equals("")) {
 				user.setStatus(text);
 				canvas.displayProfile(user);
 				canvas.showMessage("Status updated to " + text);
@@ -116,33 +120,33 @@ public class FacePamphlet extends Program implements FacePamphletConstants {
 		} else {
 			canvas.showMessage("Please select a profile to change status");
 		}
+
+		data.saveProfileData();
 	}
 
 	/** Updates profile picture for current user */
 	private void setImage(String text) {
-		if (user != null) {
+		if (text.contains("(") || text.contains(")") || text.contains("{") || text.contains("}")
+				|| text.contains(":")) {
+			canvas.showMessage("Inputed info should not contain ani of next simbols " + '"' + "( ) { } :" + '"');
+		} else if (user != null) {
 			if (!text.equals("")) {
-				GImage image = null;
-
-				try {
-
-					image = new GImage("images/" + text);
-
-					user.setImage(image);
+				if (user.setImage(text)) {
 
 					canvas.displayProfile(user);
 
 					canvas.showMessage("Picture updated");
-
-				} catch (ErrorException ex) {
-					canvas.displayProfile(user);
+				} else {
 
 					canvas.showMessage("Unable to open image file: <" + text + ">");
 				}
+
 			}
 		} else {
 			canvas.showMessage("Please select a profile to change image");
 		}
+
+		data.saveProfileData();
 	}
 
 	/**
@@ -150,7 +154,10 @@ public class FacePamphlet extends Program implements FacePamphletConstants {
 	 * as the current user
 	 */
 	private void addProfile(String name) {
-		if (!name.equals("")) {
+		if (name.contains("(") || name.contains(")") || name.contains("{") || name.contains("}")
+				|| name.contains(":")) {
+			canvas.showMessage("Inputed info should not contain ani of next simbols " + '"' + "( ) { } :" + '"');
+		} else if (!name.equals("")) {
 			if (!data.containsProfile(name)) {
 				user = new FacePamphletProfile(name);
 				data.addProfile(user);
@@ -164,6 +171,8 @@ public class FacePamphlet extends Program implements FacePamphletConstants {
 				canvas.showMessage("A profile with the name <" + name + "> already exists");
 			}
 		}
+
+		data.saveProfileData();
 	}
 
 	/** Deletes selected profile */
@@ -177,6 +186,8 @@ public class FacePamphlet extends Program implements FacePamphletConstants {
 				canvas.showMessage("A profile with the name <" + name + "> does not exists");
 			}
 		}
+
+		data.saveProfileData();
 	}
 
 	/** Searches for the inputed profile in the data */
