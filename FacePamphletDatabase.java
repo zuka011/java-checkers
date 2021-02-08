@@ -9,7 +9,6 @@
 
 import java.util.*;
 
-
 public class FacePamphletDatabase implements FacePamphletConstantsExtension {
 
 	/**
