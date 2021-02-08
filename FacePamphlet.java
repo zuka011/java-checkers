@@ -1,3 +1,4 @@
+
 /* 
  * File: FacePamphlet.java
  * -----------------------
@@ -6,182 +7,187 @@
  */
 
 import acm.program.*;
+import acmx.export.java.util.Iterator;
 import acm.graphics.*;
 import acm.util.*;
+import acmx.export.javax.swing.JButton;
+
 import java.awt.event.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
 
-public class FacePamphlet extends Program 
-					implements FacePamphletConstants {
+
+public class FacePamphlet extends Program implements FacePamphletConstants {
+	private FacePamphletDatabase data = new FacePamphletDatabase();
+	private FacePamphletCanvas canvas = new FacePamphletCanvas();
+	private JLabel name = new JLabel("Name");
+	private JTextField fld = new JTextField(TEXT_FIELD_SIZE);
+	private JButton add = new JButton("Add");
+	private JButton delete = new JButton("Delete");
+	private JButton loookup = new JButton("loookup");
+	private JTextField statusfld = new JTextField(TEXT_FIELD_SIZE);
+	private JButton status = new JButton("Change Status");
+	private JTextField picturefld = new JTextField(TEXT_FIELD_SIZE);
+	private JButton picture = new JButton("Change Picture");
+	private JTextField friendfld = new JTextField(TEXT_FIELD_SIZE);
+	private JButton friend = new JButton("Add Friend");
+	private String fldName = "";
 
 	/**
-	 * This method has the responsibility for initializing the 
-	 * interactors in the application, and taking care of any other 
-	 * initialization that needs to be performed.
+	 * This method has the responsibility for initializing the interactors in the
+	 * application, and taking care of any other initialization that needs to be
+	 * performed.
 	 */
 	public void init() {
-		initialize();
-		addActionListeners();
-    }
-    
-	// adds all the buttons, text fields and the canvas
-  private void initialize() {
-	  JLabel label  = new JLabel("Name");
-		add(label, NORTH);
-		
-		NAME_FIELD = new JTextField(TEXT_FIELD_SIZE);
-		add(NAME_FIELD,NORTH);
-		
-		ADD_BUTTON = new JButton("Add");
-		add(ADD_BUTTON,NORTH);
-		DELETE_BUTTON = new JButton("Delete");
-		add(DELETE_BUTTON,NORTH);
-		LOOKUP_BUTTON = new JButton("Lookup");
-		add(LOOKUP_BUTTON,NORTH);
-		
-		STATUS_FIELD = new JTextField(TEXT_FIELD_SIZE);
-		add(STATUS_FIELD,WEST);
-		STATUS_FIELD.addActionListener(this);
-		STATUS_BUTTON = new JButton("Change Status");
-		add(STATUS_BUTTON,WEST);
-		
-		add(new JLabel(EMPTY_LABEL_TEXT),WEST);
-		
-		PICTURE_FIELD = new JTextField(TEXT_FIELD_SIZE);
-		add(PICTURE_FIELD,WEST);
-		PICTURE_FIELD.addActionListener(this);
-		PICTURE_BUTTON = new JButton("Change Picture");
-		add(PICTURE_BUTTON,WEST);
-		
-		add(new JLabel(EMPTY_LABEL_TEXT),WEST);
-		
-		ADD_FRIEND__FIELD = new JTextField(TEXT_FIELD_SIZE);
-		add(ADD_FRIEND__FIELD,WEST);
-		ADD_FRIEND__FIELD.addActionListener(this);
-		ADD_FRIEND_BUTTON = new JButton("Add Friend");
-		add(ADD_FRIEND_BUTTON,WEST);
-		
-		canvas  = new FacePamphletCanvas();
 		add(canvas);
-  }
-    /**
-     * This class is responsible for detecting when the buttons are
-     * clicked or interactors are used, so you will have to add code
-     * to respond to these actions.
-     */
-    public void actionPerformed(ActionEvent e) {
-    	
-    	// adds profile and displays it
-		if (e.getSource() == ADD_BUTTON &&  !NAME_FIELD.getText().equals("")) {
-			canvas.removeAll();
-			if (!data.containsProfile(NAME_FIELD.getText())) {
-				profile = new FacePamphletProfile(NAME_FIELD.getText());
-				data.addProfile(profile);
-				canvas.showMessage("New profile created");
-			} else {
-				profile = data.getProfile(NAME_FIELD.getText());
-				canvas.showMessage("A profile with the name " + profile.getName() + " already exists");
-			}
-			
-			canvas.displayProfile(profile);
-		}
-		
-		// deletes profile if there is one
-		if (e.getSource() == DELETE_BUTTON &&  !NAME_FIELD.getText().equals("")) {
-			canvas.removeAll();
-			if (data.containsProfile(NAME_FIELD.getText())) {
-				data.deleteProfile(NAME_FIELD.getText());
-				canvas.showMessage("Profile of " + NAME_FIELD.getText() +" deleted");
-				profile = null;
-			} else {
-				canvas.showMessage("A profile with the name "+  NAME_FIELD.getText() +" does not exist");
-			}
-		}
-		
-		// looks up profile if there is one
-		if (e.getSource() == LOOKUP_BUTTON &&  !NAME_FIELD.getText().equals("")) {
-			if (data.containsProfile(NAME_FIELD.getText())) {
-				profile = data.getProfile(NAME_FIELD.getText());
-				canvas.removeAll();
-				canvas.showMessage("Displaying " + profile.getName() ); 
-				canvas.displayProfile(profile);
-			} else {
-				canvas.removeAll();
-				canvas.showMessage("A profile with the name "+  NAME_FIELD.getText() +" does not exist");
-				profile = null;
-			}
-		}
-		
-		//changes status and displays updated profile
-		if ((e.getSource() == STATUS_BUTTON || e.getSource() == STATUS_FIELD )&& !STATUS_FIELD.getText().equals("")) {
-			if(profile != null) {
-			profile.setStatus(STATUS_FIELD.getText());
-			canvas.removeAll();
-			canvas.showMessage("Status updated to " + STATUS_FIELD.getText());
-			canvas.displayProfile(profile);
-			} else {
-				canvas.showMessage("Please select a profile to change status");
-			}
-		}
-		
-		// changes profile picture and displays updated profile
-		if ((e.getSource() == PICTURE_BUTTON || e.getSource() == PICTURE_FIELD) && !PICTURE_FIELD.getText().equals("")) {
-			if(profile != null) {
-			GImage image = null; 
-			try { 
-			image = new GImage(PICTURE_FIELD.getText()); 
-			profile.setImage(image);
-			canvas.removeAll();
-			canvas.showMessage("Picture update");
-			
-			} catch (ErrorException ex) { 
-				canvas.showMessage("Unable to open image file: " + PICTURE_FIELD.getText());  
-			}
-			} else {
-				canvas.showMessage("Please select a profile to change picture");
-			}
-			canvas.displayProfile(profile);
-		}
-		
-		// adds friends to profile and displays updated profile
-		if ((e.getSource() == ADD_FRIEND_BUTTON || e.getSource() == ADD_FRIEND__FIELD) &&  !ADD_FRIEND__FIELD.getText().equals("")) {
-			if(!profile.getName().equals(ADD_FRIEND__FIELD.getText())) {
-			canvas.removeAll();
-			if(profile != null) {
-				if (data.containsProfile(ADD_FRIEND__FIELD.getText())) {
-					if (profile.addFriend(ADD_FRIEND__FIELD.getText())) {
-					FacePamphletProfile friend = data.getProfile(ADD_FRIEND__FIELD.getText());
-					friend.addFriend(profile.getName());
-					canvas.showMessage(ADD_FRIEND__FIELD.getText() + " added as a friend");
-					} else {
-						canvas.showMessage(profile.getName() + "  already has " + ADD_FRIEND__FIELD.getText() + " as a friend");
-					}
-				} else {
-					canvas.showMessage( ADD_FRIEND__FIELD.getText() + " does not exist");
-				}
-					
-			}else {
-				canvas.showMessage("Please select a profile to add friend");
-			}
-			canvas.displayProfile(profile);
-		} else canvas.showMessage("You can not add yourself as a friend");
-			}
+		add(name, NORTH);
+		add(fld, NORTH);
+		add(add, NORTH);
+		add.addActionListener(this);
+		add(delete, NORTH);
+		delete.addActionListener(this);
+		add(loookup, NORTH);
+		loookup.addActionListener(this);
+		add(statusfld, WEST);
+		statusfld.addActionListener(this);
+		add(status, WEST);
+		status.addActionListener(this);
+		add(new JLabel(EMPTY_LABEL_TEXT), WEST);
+		add(picturefld, WEST);
+		picturefld.addActionListener(this);
+		add(picture, WEST);
+		picture.addActionListener(this);
+		add(new JLabel(EMPTY_LABEL_TEXT), WEST);
+		add(friendfld, WEST);
+		friendfld.addActionListener(this);
+		add(friend, WEST);
+		friend.addActionListener(this);
+
 	}
-    
-    // private instance variables
-    private FacePamphletDatabase data = new FacePamphletDatabase();
-    private FacePamphletProfile profile;
-    private FacePamphletCanvas canvas;
-    
-    private JButton ADD_BUTTON;
-    private JButton DELETE_BUTTON;
-    private JButton LOOKUP_BUTTON;
-    private JButton STATUS_BUTTON;
-    private JButton PICTURE_BUTTON;
-    private JButton ADD_FRIEND_BUTTON;
-    
-    private JTextField NAME_FIELD;
-    private JTextField STATUS_FIELD;
-    private JTextField PICTURE_FIELD;
-    private JTextField ADD_FRIEND__FIELD;
+
+	/**
+	 * This class is responsible for detecting when the buttons are clicked or
+	 * interactors are used, so you will have to add code to respond to these
+	 * actions.
+	 */
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == add) {
+			if (!fld.getText().equals("")) {
+				fldName = fld.getText();
+				if (!data.containsProfile(fldName)) {
+					data.addProfile(new FacePamphletProfile(fldName));
+					canvas.displayProfile(data.getProfile(fldName));
+					canvas.showMessage("New profile created");
+				} else {
+					canvas.displayProfile(data.getProfile(fldName));
+					canvas.showMessage("A profile with the name " + fldName + " already exists");
+				}
+			}
+		}
+		if (e.getSource() == delete) {
+			if (!fld.getText().equals("")) {
+				fldName = fld.getText();
+				if (data.containsProfile(fldName)) {
+					data.deleteProfile(fldName);
+					canvas.removeAll();
+					canvas.showMessage("Profile of " + fldName + " deleted");
+					fldName = "";
+				} else {
+					canvas.removeAll();
+					canvas.showMessage("A profile with the name" + fldName + "do not exists");
+					fldName = "";
+				}
+			}
+		}
+		if (e.getSource() == loookup) {
+			if (!fld.getText().equals("")) {
+				fldName = fld.getText();
+				if (data.containsProfile(fldName)) {
+					FacePamphletProfile profile = data.getProfile(fldName);
+					canvas.displayProfile(profile);
+					canvas.showMessage("Displaying " + fldName);
+					
+				}else {
+					canvas.removeAll();
+					canvas.showMessage("A profile with the name " + fldName + " do not exists");
+					fldName ="";
+				}
+			}
+		}
+		if (e.getSource() == statusfld || e.getSource() == status) {
+			if (!statusfld.getText().equals("")) {
+				if(!fldName.equals("")) {
+				if (data.containsProfile(fldName)) {
+					data.getProfile(fldName).setStatus(statusfld.getText());
+					canvas.displayProfile(data.getProfile(fldName));
+					canvas.showMessage("Status updated to " + statusfld.getText());	
+				}else {
+					canvas.removeAll();
+					canvas.showMessage("Please select a profile to change status");
+				}
+				}
+			}
+		}
+		if (e.getSource() == picturefld || e.getSource() == picture) {
+			if (!picturefld.getText().equals("")) {
+				if(!fldName.equals("")) {
+				if ( data.containsProfile(fldName)) {
+					GImage image = null;
+					try {
+						image = new GImage(picturefld.getText());
+					} catch (ErrorException ex) {
+						canvas.removeAll();
+						canvas.displayProfile(data.getProfile(fldName));
+						canvas.showMessage("Unable to open image file:" + picturefld.getText());
+					}
+					if (image != null) {
+						data.getProfile(fldName).setImage(image);
+						canvas.removeAll();
+						canvas.displayProfile(data.getProfile(fldName));
+						canvas.showMessage("Updated profile picture");
+					}
+				}else {
+					canvas.removeAll();
+					canvas.showMessage("Please select a profile to change status");
+				}
+			}
+			}
+		}
+		if (e.getSource() == friendfld || e.getSource() == friend) {
+			if (!friendfld.getText().equals("") ) {
+				if(!fldName.equals("")) {
+				if ( data.containsProfile(fldName)) {
+					if (data.containsProfile(friendfld.getText())) {
+						if(!fldName.equals(friendfld.getText())) {
+							if(data.getProfile(fldName).addFriend(friendfld.getText())) {
+							data.getProfile(friendfld.getText()).addFriend(fldName);
+							canvas.displayProfile(data.getProfile(fldName));
+							canvas.showMessage( friendfld.getText() +" added as a friend");
+							}else {
+								canvas.removeAll();
+								canvas.displayProfile(data.getProfile(fldName));
+								canvas.showMessage(fldName+" already has " +friendfld.getText()+ " as a friend.");
+							}
+						}else {
+							canvas.removeAll();
+							canvas.displayProfile(data.getProfile(fldName));
+							canvas.showMessage("you can't add yourself in friend list");
+						}
+					}else {
+						canvas.removeAll();
+						canvas.displayProfile(data.getProfile(fldName));
+						canvas.showMessage( friendfld.getText()+ " does not exist.");
+					}
+				}else {
+					canvas.removeAll();
+					canvas.showMessage("Please select a profile to change status");
+				}
+				}
+			}
+		}
+
+	}
+	
+
 }

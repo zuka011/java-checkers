@@ -1,3 +1,4 @@
+
 /*
  * File: FacePamphletProfile.java
  * ------------------------------
@@ -12,122 +13,106 @@ import acm.graphics.*;
 import java.util.*;
 
 public class FacePamphletProfile implements FacePamphletConstants {
-	
-	// private instance variables
-	private String profileName;
-	private GImage profileImage;
-	private String profileStatus = "";
-	private ArrayList <String> profileFriends ;
-	private Iterator<String> friendsIter ;
-		
-	
-	/** 
-	 * Constructor
-	 * This method takes care of any initialization needed for
-	 * the profile.
+	private String Name ="";
+	private GImage Image = null;
+	private String Status = "";
+	private ArrayList<String> friends = new ArrayList<>();
+
+	/**
+	 * Constructor This method takes care of any initialization needed for the
+	 * profile.
 	 */
 	public FacePamphletProfile(String name) {
-		profileFriends = new ArrayList <String> ();
-		profileName = name;
+		Name = name;
 	}
 
-	/** This method returns the name associated with the profile. */ 
+	/** This method returns the name associated with the profile. */
 	public String getName() {
-		return profileName;
+		return Name;
 	}
 
-	/** 
-	 * This method returns the image associated with the profile.  
-	 * If there is no image associated with the profile, the method
-	 * returns null. */ 
+	/**
+	 * This method returns the image associated with the profile. If there is no
+	 * image associated with the profile, the method returns null.
+	 */
 	public GImage getImage() {
-		return profileImage;
-		
+		return Image;
 	}
 
-	/** This method sets the image associated with the profile. */ 
+	/** This method sets the image associated with the profile. */
 	public void setImage(GImage image) {
-		profileImage = image;
-	}
-	
-	/** 
-	 * This method returns the status associated with the profile.
-	 * If there is no status associated with the profile, the method
-	 * returns the empty string ("").
-	 */ 
-	public String getStatus() {
-		return profileStatus;
-	}
-	
-	/** This method sets the status associated with the profile. */ 
-	public void setStatus(String status) {
-		profileStatus = status;
+		Image = image;
 	}
 
-	/** 
-	 * This method adds the named friend to this profile's list of 
-	 * friends.  It returns true if the friend's name was not already
-	 * in the list of friends for this profile (and the name is added 
-	 * to the list).  The method returns false if the given friend name
-	 * was already in the list of friends for this profile (in which 
-	 * case, the given friend name is not added to the list of friends 
-	 * a second time.)
+	/**
+	 * This method returns the status associated with the profile. If there is no
+	 * status associated with the profile, the method returns the empty string ("").
+	 */
+	public String getStatus() {
+		return Status;
+	}
+
+	/** This method sets the status associated with the profile. */
+	public void setStatus(String status) {
+		Status = status;
+	}
+
+	/**
+	 * This method adds the named friend to this profile's list of friends. It
+	 * returns true if the friend's name was not already in the list of friends for
+	 * this profile (and the name is added to the list). The method returns false if
+	 * the given friend name was already in the list of friends for this profile (in
+	 * which case, the given friend name is not added to the list of friends a
+	 * second time.)
 	 */
 	public boolean addFriend(String friend) {
-		
-		if (profileFriends.contains(friend)) {
+		if (friends.contains(friend)) {
 			return false;
-		}else {
-			profileFriends.add(friend);
-			return true;
+		} else {
+			friends.add(friend);
 		}
+		return true;
 	}
 
-	/** 
-	 * This method removes the named friend from this profile's list
-	 * of friends.  It returns true if the friend's name was in the 
-	 * list of friends for this profile (and the name was removed from
-	 * the list).  The method returns false if the given friend name 
-	 * was not in the list of friends for this profile (in which case,
-	 * the given friend name could not be removed.)
+	/**
+	 * This method removes the named friend from this profile's list of friends. It
+	 * returns true if the friend's name was in the list of friends for this profile
+	 * (and the name was removed from the list). The method returns false if the
+	 * given friend name was not in the list of friends for this profile (in which
+	 * case, the given friend name could not be removed.)
 	 */
 	public boolean removeFriend(String friend) {
-		if (profileFriends.contains(friend)) {
-			profileFriends.remove(friend);
+		if (friends.contains(friend)) {
+			friends.remove(friend);
 			return true;
-		} else {
-			return false;
 		}
+		return false;
 	}
 
-	/** 
-	 * This method returns an iterator over the list of friends 
-	 * associated with the profile.
-	 */ 
+	/**
+	 * This method returns an iterator over the list of friends associated with the
+	 * profile.
+	 */
 	public Iterator<String> getFriends() {
-		friendsIter = profileFriends.iterator(); 
-		return friendsIter;
+		return friends.iterator();
 	}
-	
-	/** 
-	 * This method returns a string representation of the profile.  
-	 * This string is of the form: "name (status): list of friends", 
-	 * where name and status are set accordingly and the list of 
-	 * friends is a comma separated list of the names of all of the 
-	 * friends in this profile.
+
+	/**
+	 * This method returns a string representation of the profile. This string is of
+	 * the form: "name (status): list of friends", where name and status are set
+	 * accordingly and the list of friends is a comma separated list of the names of
+	 * all of the friends in this profile.
 	 * 
-	 * For example, in a profile with name "Alice" whose status is 
-	 * "coding" and who has friends Don, Chelsea, and Bob, this method 
-	 * would return the string: "Alice (coding): Don, Chelsea, Bob"
-	 */ 
+	 * For example, in a profile with name "Alice" whose status is "coding" and who
+	 * has friends Don, Chelsea, and Bob, this method would return the string:
+	 * "Alice (coding): Don, Chelsea, Bob"
+	 */
 	public String toString() {
-		String result = "";
-		result += profileName + " " + "(" + profileStatus + "):" + " "; 
-		while (friendsIter.hasNext()) {
-			result+= (friendsIter.next());
-			if (friendsIter.hasNext()) result += ", ";
+		String result = Name + "(" + Status + ")" +":" ;
+		for(int i=0; i< friends.size();i++) {
+			result+= " " + friends.get(i) + ",";
 		}
 		return result;
 	}
-	
+
 }
