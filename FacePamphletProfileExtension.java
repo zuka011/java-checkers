@@ -1,4 +1,3 @@
-package images;
 
 import acm.graphics.*;
 import java.util.*;
