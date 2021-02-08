@@ -53,7 +53,7 @@ public class FacePamphletDatabaseExtension implements FacePamphletConstantsExten
 				while (it.hasNext()) {
 					String friend = it.next();
 					if (friend.equals(name)) {
-						profile.removeFriend(name);
+						it.remove();
 					}
 				}
 			}
