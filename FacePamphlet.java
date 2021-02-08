@@ -199,7 +199,8 @@ public class FacePamphlet extends Program
     //displays profile pic if it's is readable, otherwise displays according message
     private void changePicture(String picName){
     	try{
-    		image = new GImage("Assignment7/images/"+picName);	
+//    		image = new GImage("Assignment7/images/"+picName);	
+    		image = new GImage(picName)
     		profileClass.setImage(image);
     		canvas.displayProfile(profileClass);
 			canvas.showMessage("Picture updated");
