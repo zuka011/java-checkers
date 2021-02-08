@@ -224,23 +224,23 @@ public class FacePamphletCanvasExtension extends GCanvas implements FacePamphlet
 
 	public void scrollUp() {
 		if (friendLabels.size() != 0) {
-		if (friendLabels.get(0).getY() < friendBox.getY() + friendLabels.get(0).getHeight()) {
-			for (int i = 0; i < friendLabels.size(); i++) {
-				double x = friendLabels.get(i).getX();
-				double y = friendLabels.get(i).getY() + BETWEEN_FRIEND_NAMES;
-				friendLabels.get(i).setLocation(x, y);
-				if ((y > friendBox.getY() + friendBox.getHeight()
-						|| y < friendBox.getY() + friendLabels.get(i).getHeight()) && friendLabels.size() != 0) {
-					friendLabels.get(i).setVisible(false);
+			if (friendLabels.get(0).getY() < friendBox.getY() + friendLabels.get(0).getHeight()) {
+				for (int i = 0; i < friendLabels.size(); i++) {
+					double x = friendLabels.get(i).getX();
+					double y = friendLabels.get(i).getY() + BETWEEN_FRIEND_NAMES;
+					friendLabels.get(i).setLocation(x, y);
+					if ((y > friendBox.getY() + friendBox.getHeight()
+							|| y < friendBox.getY() + friendLabels.get(i).getHeight()) && friendLabels.size() != 0) {
+						friendLabels.get(i).setVisible(false);
 
-				} else {
-					friendLabels.get(i).setVisible(true);
+					} else {
+						friendLabels.get(i).setVisible(true);
+					}
+
 				}
 
 			}
-
 		}
-	}
 	}
 
 	public void scrollDown() {
