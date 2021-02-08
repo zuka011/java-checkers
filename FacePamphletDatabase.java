@@ -66,5 +66,5 @@ public class FacePamphletDatabase implements FacePamphletConstantsExtension {
 	}
 
 	/* Private instance variable */
-	private Map<String, FacePamphletProfile> profileMap;
+	private Map<String, FacePamphletProfileExtension> profileMap;
 }
