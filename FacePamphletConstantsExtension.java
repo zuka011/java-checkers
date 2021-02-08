@@ -1,5 +1,3 @@
-package images;
-
 import java.awt.Color;
 
 public interface FacePamphletConstantsExtension {
