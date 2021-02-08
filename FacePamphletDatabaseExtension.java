@@ -1,5 +1,4 @@
 
-package images;
 import java.util.*;
 
 public class FacePamphletDatabaseExtension implements FacePamphletConstantsExtension {
