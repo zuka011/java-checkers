@@ -11,227 +11,177 @@ import acm.util.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class FacePamphlet extends Program implements FacePamphletConstants {
+public class FacePamphlet extends Program 
+					implements FacePamphletConstants {
 
 	/**
-	 * This method has the responsibility for initializing the interactors in the
-	 * application, and taking care of any other initialization that needs to be
-	 * performed.
+	 * This method has the responsibility for initializing the 
+	 * interactors in the application, and taking care of any other 
+	 * initialization that needs to be performed.
 	 */
 	public void init() {
-		/** Initializes face pamphlet classes */
-		add(canvas = new FacePamphletCanvas());
-
-		data = new FacePamphletDatabase();
-
-		/** JObjects on the NORTH */
-		add(new JLabel("Name "), NORTH);
-
-		add(topTextField = new JTextField(TEXT_FIELD_SIZE), NORTH);
-		add(addButton = new JButton("Add"), NORTH);
-		add(deleteButton = new JButton("Delete"), NORTH);
-		add(lookUpButton = new JButton("Look Up"), NORTH);
-
-		/** JObjects on the WEST */
-		// Field for updating status of the user
-		add(statusTextField = new JTextField(TEXT_FIELD_SIZE), WEST);
-		add(status = new JButton("Change Status"), WEST);
-		statusTextField.addActionListener(this);
-		add(new JLabel(EMPTY_LABEL_TEXT), WEST);
-
-		// Field for updating profile picture of the user
-		add(imageTextField = new JTextField(TEXT_FIELD_SIZE), WEST);
-		add(image = new JButton("Change Image"), WEST);
-		imageTextField.addActionListener(this);
-		add(new JLabel(EMPTY_LABEL_TEXT), WEST);
-
-		// Field for updating friend list of the user
-		add(addFriendTextField = new JTextField(TEXT_FIELD_SIZE), WEST);
-		add(addFriend = new JButton("Add Friend"), WEST);
-		addFriendTextField.addActionListener(this);
-		addActionListeners(this);
-
-	}
-
-	/**
-	 * This class is responsible for detecting when the buttons are clicked or
-	 * interactors are used, so you will have to add code to respond to these
-	 * actions.
-	 */
-	public void actionPerformed(ActionEvent e) {
-		Object obj = e.getSource();
-
-		if (obj.equals(addFriend) || obj.equals(addFriendTextField)) {
-			addFriend(addFriendTextField.getText());
-			addFriendTextField.setText("");
-		} else if (obj.equals(status) || obj.equals(statusTextField)) {
-			setStatus(statusTextField.getText());
-			statusTextField.setText("");
-		} else if (obj.equals(image) || obj.equals(imageTextField)) {
-			setImage(imageTextField.getText());
-			imageTextField.setText("");
-		} else if (obj.equals(addButton)) {
-			addProfile(topTextField.getText());
-			topTextField.setText("");
-		} else if (obj.equals(deleteButton)) {
-			deleteProfile(topTextField.getText());
-			topTextField.setText("");
-		} else if (obj.equals(lookUpButton)) {
-			lookUp(topTextField.getText());
-			topTextField.setText("");
-		}
-	}
-
-	/** Updates friend list of the current user and inputed profile */
-	private void addFriend(String name) {
-		if (user != null) {
-			if (name.contentEquals(user.getName())) {
-				canvas.showMessage("You can't add yourself to your friend list");
-			} else if (!name.equals("")) {
-				if (user.isFriendsWith(name)) {
-					canvas.showMessage("<" + user.getName() + "> already has <" + name + "> as a friend.");
-				} else if (data.getProfile(name) != null) {
-					user.addFriend(name);
-					data.getProfile(name).addFriend(user.getName());
-
-					canvas.displayProfile(user);
-					canvas.showMessage("<" + name + "> added as a friend");
-				} else {
-					canvas.showMessage("<" + name + "> does not exist.");
-				}
-			}
-		} else {
-			canvas.showMessage("Please select profile to add a friend");
-		}
-		data.saveProfileData();
-	}
-
-	/** Updates status for current user */
-	private void setStatus(String text) {
-		if (user != null) {
-			if (text.contains("(") || text.contains(")") || text.contains("{") || text.contains("}")
-					|| text.contains(":")) {
-				canvas.showMessage("Inputed info should not contain ani of next simbols " + '"' + "( ) { } :" + '"');
-			} else if (!text.equals("")) {
-				user.setStatus(text);
-				canvas.displayProfile(user);
-				canvas.showMessage("Status updated to " + text);
-			}
-		} else {
-			canvas.showMessage("Please select a profile to change status");
-		}
-
-		data.saveProfileData();
-	}
-
-	/** Updates profile picture for current user */
-	private void setImage(String text) {
-		if (text.contains("(") || text.contains(")") || text.contains("{") || text.contains("}")
-				|| text.contains(":")) {
-			canvas.showMessage("Inputed info should not contain ani of next simbols " + '"' + "( ) { } :" + '"');
-		} else if (user != null) {
-			if (!text.equals("")) {
-				if (user.setImage(text)) {
-
-					canvas.displayProfile(user);
-
-					canvas.showMessage("Picture updated");
-				} else {
-
-					canvas.showMessage("Unable to open image file: <" + text + ">");
-				}
-
-			}
-		} else {
-			canvas.showMessage("Please select a profile to change image");
-		}
-
-		data.saveProfileData();
-	}
-
-	/**
-	 * Adds new profile to the data if this profile already exists, it just selects
-	 * as the current user
-	 */
-	private void addProfile(String name) {
-		if (name.contains("(") || name.contains(")") || name.contains("{") || name.contains("}")
-				|| name.contains(":")) {
-			canvas.showMessage("Inputed info should not contain ani of next simbols " + '"' + "( ) { } :" + '"');
-		} else if (!name.equals("")) {
-			if (!data.containsProfile(name)) {
-				user = new FacePamphletProfile(name);
-				data.addProfile(user);
-
-				canvas.displayProfile(user);
+		initialize();
+		addActionListeners();
+    }
+    
+	// adds all the buttons, text fields and the canvas
+  private void initialize() {
+	  JLabel label  = new JLabel("Name");
+		add(label, NORTH);
+		
+		NAME_FIELD = new JTextField(TEXT_FIELD_SIZE);
+		add(NAME_FIELD,NORTH);
+		
+		ADD_BUTTON = new JButton("Add");
+		add(ADD_BUTTON,NORTH);
+		DELETE_BUTTON = new JButton("Delete");
+		add(DELETE_BUTTON,NORTH);
+		LOOKUP_BUTTON = new JButton("Lookup");
+		add(LOOKUP_BUTTON,NORTH);
+		
+		STATUS_FIELD = new JTextField(TEXT_FIELD_SIZE);
+		add(STATUS_FIELD,WEST);
+		STATUS_FIELD.addActionListener(this);
+		STATUS_BUTTON = new JButton("Change Status");
+		add(STATUS_BUTTON,WEST);
+		
+		add(new JLabel(EMPTY_LABEL_TEXT),WEST);
+		
+		PICTURE_FIELD = new JTextField(TEXT_FIELD_SIZE);
+		add(PICTURE_FIELD,WEST);
+		PICTURE_FIELD.addActionListener(this);
+		PICTURE_BUTTON = new JButton("Change Picture");
+		add(PICTURE_BUTTON,WEST);
+		
+		add(new JLabel(EMPTY_LABEL_TEXT),WEST);
+		
+		ADD_FRIEND__FIELD = new JTextField(TEXT_FIELD_SIZE);
+		add(ADD_FRIEND__FIELD,WEST);
+		ADD_FRIEND__FIELD.addActionListener(this);
+		ADD_FRIEND_BUTTON = new JButton("Add Friend");
+		add(ADD_FRIEND_BUTTON,WEST);
+		
+		canvas  = new FacePamphletCanvas();
+		add(canvas);
+  }
+    /**
+     * This class is responsible for detecting when the buttons are
+     * clicked or interactors are used, so you will have to add code
+     * to respond to these actions.
+     */
+    public void actionPerformed(ActionEvent e) {
+    	
+    	// adds profile and displays it
+		if (e.getSource() == ADD_BUTTON &&  !NAME_FIELD.getText().equals("")) {
+			canvas.removeAll();
+			if (!data.containsProfile(NAME_FIELD.getText())) {
+				profile = new FacePamphletProfile(NAME_FIELD.getText());
+				data.addProfile(profile);
 				canvas.showMessage("New profile created");
-
 			} else {
-				user = data.getProfile(name);
-				canvas.displayProfile(user);
-				canvas.showMessage("A profile with the name <" + name + "> already exists");
+				profile = data.getProfile(NAME_FIELD.getText());
+				canvas.showMessage("A profile with the name " + profile.getName() + " already exists");
+			}
+			
+			canvas.displayProfile(profile);
+		}
+		
+		// deletes profile if there is one
+		if (e.getSource() == DELETE_BUTTON &&  !NAME_FIELD.getText().equals("")) {
+			canvas.removeAll();
+			if (data.containsProfile(NAME_FIELD.getText())) {
+				data.deleteProfile(NAME_FIELD.getText());
+				canvas.showMessage("Profile of " + NAME_FIELD.getText() +" deleted");
+				profile = null;
+			} else {
+				canvas.showMessage("A profile with the name "+  NAME_FIELD.getText() +" does not exist");
 			}
 		}
-
-		data.saveProfileData();
-	}
-
-	/** Deletes selected profile */
-	private void deleteProfile(String name) {
-		if (!name.equals("")) {
-			if (data.containsProfile(name)) {
-				data.deleteProfile(name);
+		
+		// looks up profile if there is one
+		if (e.getSource() == LOOKUP_BUTTON &&  !NAME_FIELD.getText().equals("")) {
+			if (data.containsProfile(NAME_FIELD.getText())) {
+				profile = data.getProfile(NAME_FIELD.getText());
 				canvas.removeAll();
-				canvas.showMessage("Profile of <" + name + "> deleted ");
+				canvas.showMessage("Displaying " + profile.getName() ); 
+				canvas.displayProfile(profile);
 			} else {
-				canvas.showMessage("A profile with the name <" + name + "> does not exists");
+				canvas.removeAll();
+				canvas.showMessage("A profile with the name "+  NAME_FIELD.getText() +" does not exist");
+				profile = null;
 			}
 		}
-
-		data.saveProfileData();
-	}
-
-	/** Searches for the inputed profile in the data */
-	private void lookUp(String name) {
-		if (!name.equals("")) {
-			if (data.getProfile(name) != null) {
-				user = data.getProfile(name);
-
-				canvas.displayProfile(user);
-				canvas.showMessage("Displaying <" + name + ">");
+		
+		//changes status and displays updated profile
+		if ((e.getSource() == STATUS_BUTTON || e.getSource() == STATUS_FIELD )&& !STATUS_FIELD.getText().equals("")) {
+			if(profile != null) {
+			profile.setStatus(STATUS_FIELD.getText());
+			canvas.removeAll();
+			canvas.showMessage("Status updated to " + STATUS_FIELD.getText());
+			canvas.displayProfile(profile);
 			} else {
-				canvas.showMessage("A profile with the name <" + name + "> does not exists");
+				canvas.showMessage("Please select a profile to change status");
 			}
 		}
+		
+		// changes profile picture and displays updated profile
+		if ((e.getSource() == PICTURE_BUTTON || e.getSource() == PICTURE_FIELD) && !PICTURE_FIELD.getText().equals("")) {
+			if(profile != null) {
+			GImage image = null; 
+			try { 
+			image = new GImage(PICTURE_FIELD.getText()); 
+			profile.setImage(image);
+			canvas.removeAll();
+			canvas.showMessage("Picture update");
+			
+			} catch (ErrorException ex) { 
+				canvas.showMessage("Unable to open image file: " + PICTURE_FIELD.getText());  
+			}
+			} else {
+				canvas.showMessage("Please select a profile to change picture");
+			}
+			canvas.displayProfile(profile);
+		}
+		
+		// adds friends to profile and displays updated profile
+		if ((e.getSource() == ADD_FRIEND_BUTTON || e.getSource() == ADD_FRIEND__FIELD) &&  !ADD_FRIEND__FIELD.getText().equals("")) {
+			if(!profile.getName().equals(ADD_FRIEND__FIELD.getText())) {
+			canvas.removeAll();
+			if(profile != null) {
+				if (data.containsProfile(ADD_FRIEND__FIELD.getText())) {
+					if (profile.addFriend(ADD_FRIEND__FIELD.getText())) {
+					FacePamphletProfile friend = data.getProfile(ADD_FRIEND__FIELD.getText());
+					friend.addFriend(profile.getName());
+					canvas.showMessage(ADD_FRIEND__FIELD.getText() + " added as a friend");
+					} else {
+						canvas.showMessage(profile.getName() + "  already has " + ADD_FRIEND__FIELD.getText() + " as a friend");
+					}
+				} else {
+					canvas.showMessage( ADD_FRIEND__FIELD.getText() + " does not exist");
+				}
+					
+			}else {
+				canvas.showMessage("Please select a profile to add friend");
+			}
+			canvas.displayProfile(profile);
+		} else canvas.showMessage("You can not add yourself as a friend");
+			}
 	}
-
-	/** Canvas for the Face Pamphlet */
-	private FacePamphletCanvas canvas;
-
-	/** Data containing all the profiles */
-	private FacePamphletDatabase data;
-
-	/** JObjects on the NORTH */
-
-	// Buttons
-	private JButton addButton;
-	private JButton deleteButton;
-	private JButton lookUpButton;
-
-	// TextFields
-	private JTextField topTextField;
-
-	/** JObjects on the WEST */
-
-	// Buttons
-	private JButton addFriend;
-	private JButton image;
-	private JButton status;
-
-	// TextFields
-	private JTextField statusTextField;
-	private JTextField imageTextField;
-	private JTextField addFriendTextField;
-
-	/** Selected Profile */
-	private FacePamphletProfile user;
+    
+    // private instance variables
+    private FacePamphletDatabase data = new FacePamphletDatabase();
+    private FacePamphletProfile profile;
+    private FacePamphletCanvas canvas;
+    
+    private JButton ADD_BUTTON;
+    private JButton DELETE_BUTTON;
+    private JButton LOOKUP_BUTTON;
+    private JButton STATUS_BUTTON;
+    private JButton PICTURE_BUTTON;
+    private JButton ADD_FRIEND_BUTTON;
+    
+    private JTextField NAME_FIELD;
+    private JTextField STATUS_FIELD;
+    private JTextField PICTURE_FIELD;
+    private JTextField ADD_FRIEND__FIELD;
 }
