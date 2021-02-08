@@ -64,6 +64,7 @@ public class FacePamphletDatabase implements FacePamphletConstants {
 				FacePamphletProfile ProfileOfFriend = DataBase.get(friendInList);
 				ProfileOfFriend.removeFriend(name);
 					friends.remove();
+					break;
 				}
 			DataBase.remove(name);
 			}
