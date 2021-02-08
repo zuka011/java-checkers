@@ -35,7 +35,7 @@ public class FacePamphletDatabase implements FacePamphletConstantsExtension {
 	 * database. If there is no profile in the database with the given name, the
 	 * method returns null.
 	 */
-	public FacePamphletProfile getProfile(String name) {
+	public FacePamphletProfileExtension getProfile(String name) {
 		return profileMap.get(name);
 	}
 
