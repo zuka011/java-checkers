@@ -1,5 +1,3 @@
-package images;
-
 import acm.graphics.*;
 import acm.util.RandomGenerator;
 
