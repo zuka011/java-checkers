@@ -26,7 +26,7 @@ public class FacePamphletDatabase implements FacePamphletConstantsExtension {
 	 * with the profile is the same as an existing name in the database, the
 	 * existing profile is replaced by the new profile passed in.
 	 */
-	public void addProfile(FacePamphletProfile profile) {
+	public void addProfile(FacePamphletProfileExtension profile) {
 		profileMap.put(profile.getName(), profile);
 	}
 
