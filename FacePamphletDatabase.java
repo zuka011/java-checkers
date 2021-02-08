@@ -1,6 +1,6 @@
 
 /*
-    * File: FacePamphletDatabase.java
+ * File: FacePamphletDatabase.java
  * -------------------------------
  * This class keeps track of the profiles of all users in the
  * FacePamphlet application.  Note that profile names are case
@@ -11,12 +11,14 @@ import java.util.*;
 
 public class FacePamphletDatabase implements FacePamphletConstants {
 
+	private Map<String, FacePamphletProfile> dataBase = new HashMap<String, FacePamphletProfile>();
+
 	/**
 	 * Constructor This method takes care of any initialization needed for the
 	 * database.
 	 */
 	public FacePamphletDatabase() {
-				
+	
 	}
 
 	/**
@@ -25,13 +27,11 @@ public class FacePamphletDatabase implements FacePamphletConstants {
 	 * existing profile is replaced by the new profile passed in.
 	 */
 	public void addProfile(FacePamphletProfile profile) {
-		
-		String name = profile.getName();
-		if (DataBase.containsKey(name)) {
-			DataBase.remove(name);
-			DataBase.put(name, profile);
-		} else
-			DataBase.put(name, profile);
+		if (dataBase.containsKey(profile.getName())) {
+			dataBase.replace(profile.getName(), profile);
+		} else {
+			dataBase.put(profile.getName(), profile);
+		}
 	}
 
 	/**
@@ -40,10 +40,12 @@ public class FacePamphletDatabase implements FacePamphletConstants {
 	 * method returns null.
 	 */
 	public FacePamphletProfile getProfile(String name) {
-		
-		FacePamphletProfile Profile = new FacePamphletProfile(name);
-		Profile = DataBase.get(name);
-		return Profile;
+		if (dataBase.containsKey(name)) {
+			return dataBase.get(name);
+		} else {
+			return null;
+		}
+
 	}
 
 	/**
@@ -56,34 +58,27 @@ public class FacePamphletDatabase implements FacePamphletConstants {
 	 * is unchanged after calling this method.
 	 */
 	public void deleteProfile(String name) {
-		
-		friends = DataBase.get(name).getFriends();
-		if (DataBase.containsKey(name)) {
-			while (friends.hasNext()) {
-				String friendInList = friends.next();
-				FacePamphletProfile ProfileOfFriend = DataBase.get(friendInList);
-				ProfileOfFriend.removeFriend(name);
-					friends.remove();
-					break;
-				}
-			DataBase.remove(name);
+		if (dataBase.containsKey(name)) {
+			FacePamphletProfile currProfile = dataBase.get(name);
+			Iterator<String> it = currProfile.getFriends();
+			while (it.hasNext()) {
+				String friendName = it.next();
+				dataBase.get(friendName).removeFriend(name);
 			}
+			dataBase.remove(name);
 		}
-	
+	}
 
 	/**
 	 * This method returns true if there is a profile in the database that has the
 	 * given name. It returns false otherwise.
 	 */
 	public boolean containsProfile(String name) {
-		
-		if (DataBase.containsKey(name)) {
+		if (dataBase.containsKey(name)) {
 			return true;
-		} else
+		} else {
 			return false;
+		}
 	}
-
-	private Map<String, FacePamphletProfile> DataBase = new HashMap<String, FacePamphletProfile>();
-	private Iterator<String> friends;
 
 }
