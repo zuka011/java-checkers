@@ -1,4 +1,3 @@
-package images;
 
 import acm.program.*;
 import acm.graphics.*;
