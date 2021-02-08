@@ -13,10 +13,15 @@ import java.util.*;
 
 public class FacePamphletProfile implements FacePamphletConstants {
 	
+	
+	//the private variables
 	private String profileName;
-	private String profileStatus="";
-	private GImage profilePic=null;
-	private ArrayList<String> friendsList= new ArrayList<String>();
+	private String Newstatus;
+	private GImage image;
+	private ArrayList<String> friendsList;
+	private String shortProfilePictureName;
+	
+	
 	
 	/** 
 	 * Constructor
@@ -24,14 +29,16 @@ public class FacePamphletProfile implements FacePamphletConstants {
 	 * the profile.
 	 */
 	public FacePamphletProfile(String name) {
-		// You fill this in
-		profileName=name;
-
+		profileName = name;
+		Newstatus = null;
+		friendsList = new ArrayList<String>();
+		image = null;
+		shortProfilePictureName = "No Image";
+		
 	}
 
 	/** This method returns the name associated with the profile. */ 
 	public String getName() {
-		// You fill this in.  Currently always returns the empty string.
 		return profileName;
 	}
 
@@ -40,18 +47,18 @@ public class FacePamphletProfile implements FacePamphletConstants {
 	 * If there is no image associated with the profile, the method
 	 * returns null. */ 
 	public GImage getImage() {
-		// You fill this in.  Currently always returns null.
-		if(profilePic!=null){
-			return profilePic;
-		}else{
+		if(image == null) {
 			return null;
 		}
+		else{
+			return image;
+		}		
 	}
 
 	/** This method sets the image associated with the profile. */ 
 	public void setImage(GImage image) {
-		// You fill this in
-		profilePic= image;
+		image = image; //i guess it is that simple?
+		
 	}
 	
 	/** 
@@ -60,20 +67,15 @@ public class FacePamphletProfile implements FacePamphletConstants {
 	 * returns the empty string ("").
 	 */ 
 	public String getStatus() {
-		// You fill this in.  Currently always returns the empty string.
-		if(profileStatus!="")
-		{
-			return profileStatus;
-		}else
-		{
+		if (Newstatus == null){
 			return "";
-		}	
+		}else{
+		return Newstatus;
+		}		
 	}
 	
 	/** This method sets the status associated with the profile. */ 
 	public void setStatus(String status) {
-		// You fill this in
-		profileStatus= status;
 	}
 
 	/** 
@@ -86,14 +88,13 @@ public class FacePamphletProfile implements FacePamphletConstants {
 	 * a second time.)
 	 */
 	public boolean addFriend(String friend) {
-		// You fill this in.  Currently always returns true.
-		if(!friendsList.contains(friend)){
-			friendsList.add(friend);
-			return true;
-		}else{
+		if(friendsList.contains(friend)) {
 			return false;
 		}
-
+		else{
+			friendsList.add(friend);
+			return true;
+		}
 	}
 
 	/** 
@@ -105,13 +106,13 @@ public class FacePamphletProfile implements FacePamphletConstants {
 	 * the given friend name could not be removed.)
 	 */
 	public boolean removeFriend(String friend) {
-		// You fill this in.  Currently always returns false.
-		if(friendsList.contains(friend)){
-			friendsList.remove(friend);
-			return true;
-		}else{
-			return false;
-		}
+			if(friendsList.contains(friend)){
+				friendsList.remove(friend);
+				return true;
+				
+			}else{
+				return false;
+			}		
 	}
 
 	/** 
@@ -119,8 +120,7 @@ public class FacePamphletProfile implements FacePamphletConstants {
 	 * associated with the profile.
 	 */ 
 	public Iterator<String> getFriends() {
-		// You fill this in.  Currently always returns null.
-		return friendsList.iterator();
+		return friendsList.iterator();  
 	}
 	
 	/** 
@@ -135,17 +135,12 @@ public class FacePamphletProfile implements FacePamphletConstants {
 	 * would return the string: "Alice (coding): Don, Chelsea, Bob"
 	 */ 
 	public String toString() {
-		// You fill this in.  Currently always returns the empty string.
-		String nameCollection="";
-		for(int i=0; i<friendsList.size(); i++){
-			if(i<friendsList.size()-1){
-				nameCollection+= " " + friendsList.get(i)+",";
-			}else{
-				nameCollection+= " " + friendsList.get(i);
-			}
+		String profile = profileName + " (" + Newstatus + "): ";
+		Iterator<String>it = friendsList.iterator();
+		while(it.hasNext()) {
+			profile += it.next() + ", ";
 		}
-		String information= profileName + "("+profileStatus+"):"+ nameCollection;
-		return information;
+		return profile;
 	}
 	
 }

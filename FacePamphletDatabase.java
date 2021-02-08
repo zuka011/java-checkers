@@ -8,19 +8,19 @@
 
 import java.util.*;
 
-
-
 public class FacePamphletDatabase implements FacePamphletConstants {
 
-	//stores user with their according FacePamphletProfile information
-	private HashMap<String, FacePamphletProfile> map= new HashMap<String, FacePamphletProfile>();
+	
+	private HashMap< String, FacePamphletProfile> profileDatabase;
+	
+	
 	/** 
 	 * Constructor
 	 * This method takes care of any initialization needed for 
 	 * the database.
 	 */
 	public FacePamphletDatabase() {
-		// You fill this in
+		profileDatabase = new HashMap<String, FacePamphletProfile>();
 	}
 	
 	
@@ -31,13 +31,12 @@ public class FacePamphletDatabase implements FacePamphletConstants {
 	 * the new profile passed in.
 	 */
 	public void addProfile(FacePamphletProfile profile) {
-		// You fill this in
-		if(!map.containsKey(profile.getName())){
-			map.put(profile.getName(), profile);
+		if(!profileDatabase.containsKey(profile)){
+			profileDatabase.put(profile.getName(), profile);
 		}else{
-			map.remove(profile.getName());
-			map.put(profile.getName(), profile);
-		}
+			profileDatabase.remove(profile.getName());
+			profileDatabase.put(profile.getName(), profile);
+		} 
 	}
 
 	
@@ -47,14 +46,11 @@ public class FacePamphletDatabase implements FacePamphletConstants {
 	 * the given name, the method returns null.
 	 */
 	public FacePamphletProfile getProfile(String name) {
-		// You fill this in.  Currently always returns null.
-
-		if(containsProfile(name)){
-			return map.get(name);
+		if(profileDatabase.containsKey(name)){
+			return profileDatabase.get(name);
 		}else{
 			return null;
-		}
-		
+		}		
 	}
 	
 	
@@ -68,32 +64,33 @@ public class FacePamphletDatabase implements FacePamphletConstants {
 	 * the database is unchanged after calling this method.
 	 */
 	public void deleteProfile(String name) {
-		// You fill this in
-		if(map.containsKey(name)){
-			for( FacePamphletProfile user: map.values()){
-				if(user.getName()!=name){
-					user.removeFriend(name);
-				}
+		if(profileDatabase.containsKey(name)){
+			Iterator <String> iterator = profileDatabase.keySet().iterator();
+			while(iterator.hasNext()){
+				FacePamphletProfile profile;
+				String profileName = iterator.next();
+				profile = profileDatabase.get(profileName);
+				profile.removeFriend(name);
+				
 			}
-			map.remove(name);
-		}else{
-			return;
+			profileDatabase.remove(name);
+			
+		} else {
+			// There is no such profile and well, nothing happens.
+				
 		}
 	}
-	
 	
 	/** 
 	 * This method returns true if there is a profile in the database 
 	 * that has the given name.  It returns false otherwise.
 	 */
 	public boolean containsProfile(String name) {
-		// You fill this in.  Currently always returns false.
-
-		if(map.containsKey(name)){
-			return true;
-		}else{
-			return false;
+			if(profileDatabase.containsKey(name)){
+				return true;
+			} else {
+				return false;
+	
 		}
-		
 	}
 }
