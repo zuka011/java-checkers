@@ -12,6 +12,8 @@ public class FacePamphletDatabase implements FacePamphletConstants {
 
 /** 
  *  Constructor
+ *  This method takes care of any initialization needed for
+ * 	the database.
  */
 	public FacePamphletDatabase() {
 		profileMap = new HashMap<String, FacePamphletProfile>();
@@ -53,17 +55,9 @@ public class FacePamphletDatabase implements FacePamphletConstants {
 		Iterator<FacePamphletProfile> iterator = profileMap.values().iterator();
 		while (iterator.hasNext()) {
 			FacePamphletProfile profile = iterator.next();
-			Iterator<String> friendsListIterator = profile.getFriends();
-			while (friendsListIterator.hasNext()) {
-				String friendName = friendsListIterator.next();
-				if (friendName.equals(name)) {
-					profile.friendsList.remove(name);
-					break;
-				}
-			}
+			profile.removeFriend(name);
 		}
 	}
-
 	
 /** 
  * This method returns true if there is a profile in the database 

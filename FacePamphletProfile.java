@@ -22,7 +22,7 @@ public class FacePamphletProfile implements FacePamphletConstants, Comparator<St
 		profileName = name;
 		profileStatus = "";
 		profileImage = null;
-		friendsList = null;
+		friendsList = new ArrayList<String>();
 	}
 
 /** This method returns the name associated with the profile. */ 
@@ -135,7 +135,7 @@ public class FacePamphletProfile implements FacePamphletConstants, Comparator<St
 		while (iterator.hasNext()) {
 			result += (iterator.next() + ", ");
 		}
-		result = result.substring(0, result.length() - 2);
+		if (result.length() > 0) result = result.substring(0, result.length() - 2);
 		return result;
 	}
 	
@@ -143,7 +143,5 @@ public class FacePamphletProfile implements FacePamphletConstants, Comparator<St
 	private String profileName;
 	private String profileStatus;
 	private GImage profileImage;
-	
-/*	Protected instance variables */
-	protected ArrayList<String> friendsList;
+	private ArrayList<String> friendsList;
 }
