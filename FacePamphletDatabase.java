@@ -9,6 +9,8 @@
 
 import java.util.*;
 
+import images.FacePamphletProfileExtension;
+
 public class FacePamphletDatabase implements FacePamphletConstantsExtension {
 
 	/**
@@ -16,7 +18,7 @@ public class FacePamphletDatabase implements FacePamphletConstantsExtension {
 	 * database.
 	 */
 	public FacePamphletDatabase() {
-		profileMap = new HashMap<String, FacePamphletProfile>();
+		profileMap = new HashMap<String, FacePamphletProfileExtension>();
 	}
 
 	/**
