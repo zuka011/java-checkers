@@ -54,6 +54,7 @@ public class FacePamphletDatabaseExtension implements FacePamphletConstantsExten
 					String friend = it.next();
 					if (friend.equals(name)) {
 						profile.removeFriend(name);
+						return;
 					}
 				}
 			}
