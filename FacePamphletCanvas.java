@@ -70,13 +70,13 @@ public class FacePamphletCanvas extends GCanvas
 		removeAll();
 		message.setLabel("");
 		add(message);
-		TheName();
-		ThePicture();
-		TheStatus();
-		TheFriends();
+		TheName(profile);
+		ThePicture(profile);
+		TheStatus(profile);
+		TheFriends(profile);
 	}
 
-	private void TheName() {
+	private void TheName(FacePamphletProfile profile) {
 		profileName = new GLabel(profile.getName(), LEFT_MARGIN, TOP_MARGIN);
 		profileName.setFont(PROFILE_NAME_FONT);
 		profileName.setColor(Color.blue);
@@ -84,7 +84,7 @@ public class FacePamphletCanvas extends GCanvas
 		add(profileName);
 	}
 
-	private void ThePicture() {
+	private void ThePicture(FacePamphletProfile profile) {
 		if(profile.getImage() == null){
 			GRect rect = new GRect (LEFT_MARGIN, TOP_MARGIN + IMAGE_MARGIN, IMAGE_WIDTH, IMAGE_HEIGHT);
 			GLabel noImage = new GLabel("No Image", LEFT_MARGIN + rect.getWidth()/2, TOP_MARGIN+IMAGE_MARGIN + rect.getHeight()/2);
@@ -100,7 +100,7 @@ public class FacePamphletCanvas extends GCanvas
 		}
 	}
 
-	private void TheStatus() {
+	private void TheStatus(FacePamphletProfile profile) {
 		if(profile.getStatus().equals("")){
 			status = new GLabel("No current status");
 			status.setFont(PROFILE_STATUS_FONT);
@@ -112,7 +112,7 @@ public class FacePamphletCanvas extends GCanvas
 		}
 	}
 
-	private void TheFriends() {  // need more tech savvy friends to be honest.
+	private void TheFriends(FacePamphletProfile profile) {  // need more tech savvy friends to be honest.
 		GLabel friendsLabel = new GLabel("Friends: ", getWidth()/2, TOP_MARGIN+IMAGE_MARGIN);
 		friendsLabel.setFont(PROFILE_FRIEND_LABEL_FONT);
 		add(friendsLabel);
