@@ -27,6 +27,8 @@ public class CheckersGraphics extends GCanvas {
 			
 			
 		}
+		
+		private double width, height;
 	}
 	
 	public CheckersGraphics(int width, int height) {
