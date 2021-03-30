@@ -25,7 +25,13 @@ public class CheckersGraphics extends GCanvas {
 		
 		public Checker(double width, double height, boolean dark) {
 			
+
+			double checker_diameter = min(square_width, square_height) * CHECKER_SCALE;
 			
+			GOval checker = new GOval(checker_diameter, checker_diameter);
+
+			checker.setFilled(true);
+			checker.setFillColor(checker_color);
 		}
 		
 		private double width, height;
@@ -101,12 +107,6 @@ public class CheckersGraphics extends GCanvas {
 		double square_width = width/N_ROWS;
 		double square_height = height/N_COLS;
 		
-		double checker_diameter = min(square_width, square_height) * CHECKER_SCALE;
-		
-		GOval checker = new GOval(checker_diameter, checker_diameter);
-
-		checker.setFilled(true);
-		checker.setFillColor(checker_color);
 		
 		add(checker, j * square_height + (square_height - checker_diameter)/2, i * square_width + (square_width - checker_diameter)/2);
 	}
