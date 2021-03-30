@@ -25,7 +25,8 @@ public class CheckersGraphics extends GCanvas {
 		
 		public Checker(double width, double height, boolean dark) {
 			
-			double checker_diameter = min(square_width, square_height) * CHECKER_SCALE;
+
+			double checker_diameter = min(width, height) * CHECKER_SCALE;
 			
 			GOval checker = new GOval(checker_diameter, checker_diameter);
 
