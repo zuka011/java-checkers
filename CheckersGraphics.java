@@ -27,11 +27,7 @@ public class CheckersGraphics extends GCanvas {
 //			
 //		}
 //	}
-	
-	public CheckersGraphics() {
 		
-	}
-	
 	public void initialize(boolean reverse) {
 	
 		System.out.println("Here I am!");
