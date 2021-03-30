@@ -10,6 +10,9 @@ import acm.graphics.*;
 @SuppressWarnings("serial")
 public class Checkers extends ConsoleProgram {
 	
+	private static final 
+	
+	
 	public void main() {
 		
 		new Checkers().start();
