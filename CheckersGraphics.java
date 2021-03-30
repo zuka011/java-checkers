@@ -24,7 +24,6 @@ public class CheckersGraphics extends GCanvas {
 	public class Checker extends GCompound {
 		
 		public Checker(double width, double height, boolean dark) {
-			
 
 			double outer_diameter = min(width, height) * CHECKER_SCALE;
 			double inner_diameter = outer_diameter * CHECKER_SCALE;
