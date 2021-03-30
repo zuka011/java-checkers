@@ -104,7 +104,7 @@ public class CheckersGraphics extends GCanvas {
 		checker.setFilled(true);
 		checker.setFillColor(checker_color);
 		
-		add(checker, i * square_width + (square_width - checker_diameter)/2, j * square_height + (square_height - checker_diameter)/2);
+		add(checker, j * square_height + (square_height - checker_diameter)/2, i * square_width + (square_width - checker_diameter)/2);
 	}
 	
 	private double min(double first, double second) {
