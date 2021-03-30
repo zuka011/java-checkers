@@ -118,7 +118,7 @@ public class CheckersGraphics extends GCanvas {
 		double square_width = width/N_ROWS;
 		double square_height = height/N_COLS;
 		
-		checker = new Checker(square_width, square_height, );
+		checker = new Checker(square_width, square_height, checker_color == DARK_COLOR);
 		
 		add(checker, j * square_width, i * square_height);
 	}
