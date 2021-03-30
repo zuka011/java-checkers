@@ -34,7 +34,7 @@ public class CheckersGraphics extends GCanvas {
 	
 	public void initialize(boolean reverse) {
 	
-		println("");
+		println("Here I am!");
 		
 		drawBoard();
 		
