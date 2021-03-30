@@ -35,7 +35,6 @@ public class CheckersGraphics extends GCanvas {
 			add(outer_circle, (width - outer_diameter)/2, (height - outer_diameter)/2);
 			add(inner_cirlce, (width - inner_diameter)/2, (height - inner_diameter)/2);
 			
-
 			checker.setFilled(true);
 			checker.setFillColor(checker_color);
 		}
