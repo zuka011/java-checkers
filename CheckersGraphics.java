@@ -21,12 +21,12 @@ public class CheckersGraphics extends GCanvas {
 	private static final Color DARK_COLOR = Color.gray;
 	private static final Color LIGHT_COLOR = Color.red;
 	
-//	public class Checker extends GCompound {
-//		
-//		public Checker(double width, double height, boolean dark) {
-//			
-//		}
-//	}
+	public class Checker extends GCompound {
+		
+		public Checker(double width, double height, boolean dark) {
+			
+		}
+	}
 	
 	public CheckersGraphics(int width, int height) {
 		
