@@ -10,7 +10,8 @@ import acm.graphics.*;
 @SuppressWarnings("serial")
 public class Checkers extends ConsoleProgram {
 	
-	private static final 
+	private static final int CANVAS_WIDTH = 500;
+	private static final int CANVAS_HEIGHT = 500;
 	
 	
 	public void main() {
