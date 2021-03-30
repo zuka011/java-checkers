@@ -33,7 +33,7 @@ public class CheckersGraphics extends GCanvas {
 			checker.setFilled(true);
 			checker.setFillColor(checker_color);
 			
-			add((width - checker_diameter)/2, (height - checker_diameter)/2)
+			add(checker, (width - checker_diameter)/2, (height - checker_diameter)/2);
 		}
 		
 		private double width, height;
