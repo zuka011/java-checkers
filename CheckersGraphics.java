@@ -40,7 +40,9 @@ public class CheckersGraphics extends GCanvas {
 			if(dark) {
 				
 				outer_circle.setFillColor(DARK_COLOR);
-				inner_cirlce.setFillColor(LIGHT_COLOR);
+				inner_cirlce.setFillColor(DARK_COLOR);
+				
+				inner_circle.setColor(LIGHT_COLOR);
 			} else {
 
 				outer_circle.setFillColor(LIGHT_COLOR);
