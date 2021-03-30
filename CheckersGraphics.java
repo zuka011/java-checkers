@@ -28,12 +28,12 @@ public class CheckersGraphics extends GCanvas {
 //		}
 //	}
 	
-	public CheckersGraphics(double width, double height) {
+	public CheckersGraphics(int width, int height) {
 		
 		this.width = width;
 		this.height = height;
 		
-		this.setSize((int) width, (int) height);		
+		this.setSize( width, height);		
 	}
 	
 	public void initialize(boolean reverse) {
