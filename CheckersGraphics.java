@@ -33,6 +33,8 @@ public class CheckersGraphics extends GCanvas {
 		this.width = width;
 		this.height = height;
 		
+		
+		
 	}
 	
 	public void initialize(boolean reverse) {
