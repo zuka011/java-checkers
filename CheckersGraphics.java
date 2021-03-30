@@ -25,6 +25,7 @@ public class CheckersGraphics extends GCanvas {
 		
 		public Checker(double width, double height, boolean dark) {
 			
+			
 		}
 	}
 	
