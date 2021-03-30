@@ -30,7 +30,9 @@ public class CheckersGraphics extends GCanvas {
 	
 	public CheckersGraphics(double width, double height) {
 		
-		resize();
+		this.width = width;
+		this.height = height;
+		
 	}
 	
 	public void initialize(boolean reverse) {
