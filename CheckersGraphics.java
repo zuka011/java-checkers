@@ -47,6 +47,8 @@ public class CheckersGraphics extends GCanvas {
 
 				outer_circle.setFillColor(LIGHT_COLOR);
 				inner_cirlce.setFillColor(DARK_COLOR);
+
+				inner_cirlce.setColor(Color.white);
 			}
 		}	
 	}
