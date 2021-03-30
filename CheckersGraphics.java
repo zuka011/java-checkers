@@ -27,11 +27,12 @@ public class CheckersGraphics extends GCanvas {
 			
 
 			double outer_diameter = min(width, height) * CHECKER_SCALE;
+			double inner_diameter = min(width, height) * CHECKER_SCALE;
 			
-			GOval outer_circle = new GOval(checker_diameter, checker_diameter);
+			GOval outer_circle = new GOval(outer_diameter, outer_diameter);
 			GOval inner_cirlce = new GOval(checker_diameter * CHECKER_SCALE, checker_diameter * CHECKER_SCALE);
 			
-			add(outer_circle, (width - checker_diameter)/2, (height - checker_diameter)/2);
+			add(outer_circle, (width - outer_diameter)/2, (height - outer_diameter)/2);
 			add(inner_cirlce, (width - checker_diameter * CHECKER_SCALE)/2, (height - checker_diameter * CHECKER_SCALE)/2);
 			
 
