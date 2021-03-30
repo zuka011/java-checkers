@@ -24,7 +24,7 @@ public class Checkers extends ConsoleProgram {
 		CheckersGraphics graphics = new CheckersGraphics(CANVAS_WIDTH, CANVAS_HEIGHT);
 		
 		add(graphics);
-		graphics.initialize(false);
+		graphics.initialize(true);
 	}
 	
 	public void run() {
