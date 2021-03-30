@@ -110,7 +110,7 @@ public class CheckersGraphics extends GCanvas {
 		double square_height = height/N_COLS;
 		
 		
-		add(checker, j * square_width, i * height + (square_width - checker_diameter)/2);
+		add(checker, j * square_width, i * height);
 	}
 	
 	private double min(double first, double second) {
