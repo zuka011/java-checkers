@@ -17,7 +17,7 @@ public class Checkers extends ConsoleProgram {
 	
 	public void init() {
 		
-		CheckersGraphics graphics = new CheckersGraphics();
+		CheckersGraphics graphics = new CheckersGraphics(500, 500);
 		
 		add(graphics);
 		graphics.initialize(false);
