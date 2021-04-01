@@ -21,12 +21,13 @@ public class CheckersGraphics extends GCanvas {
 	
 	public class Checker extends GCompound {
 		
+		static final double OUTER_SCALE = 0.7;
+		static final double INNER_SCALE = OUTER_SCALE/1.25;
+		
 		public Checker(double width, double height, boolean dark) {
-			
-			static final double checkerScale = 0.7;
 
-			double outer_diameter = min(width, height) * checkerScale;
-			double inner_diameter = outer_diameter * checkerScale/1.25;
+			double outer_diameter = min(width, height) * OUTER_SCALE;
+			double inner_diameter = outer_diameter * INNER_SCALE;
 			double mid_diameter = 
 			
 			GOval outer_circle = new GOval(outer_diameter, outer_diameter);
