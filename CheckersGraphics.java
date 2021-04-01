@@ -158,17 +158,18 @@ public class CheckersGraphics extends GCanvas {
 	
 	private void printGrid(int [][] grid) {
 		
-		System.out.print("{");
+		System.out.print("{\n");
 		
 		for(int i = 0; i < grid.length; i++) {
 			
-			int [] currRow = grid[i];
-			for(int j = 0; j < currRow.length; j++) {
+			int [] curr_row = grid[i];
+			for(int j = 0; j < curr_row.length; j++) {
 				
-				System.out.print(currRow[j] + ", ");
+				System.out.print(curr_row[j] + ", ");
 			}
 			System.out.print("\n");
 		}
+		System.out.print("{");
 	}
 
 	private double width, height;
