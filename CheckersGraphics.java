@@ -113,7 +113,7 @@ public class CheckersGraphics extends GCanvas {
 	}
 
 	private void addCheckers(int start_row, Color checker_color) {
-				
+		
 		boolean skip_first = start_row % 2 == 0;
 		
 		for(int i = 0; i < N_CHECKER_ROWS; i++) {
@@ -141,5 +141,5 @@ public class CheckersGraphics extends GCanvas {
 	}
 
 	private double width, height;
-	private boolean [][] checkers = new boolean [N_ROWS][N_COLS];
+	private int [][] checkers = new int [N_ROWS][N_COLS];
 }
