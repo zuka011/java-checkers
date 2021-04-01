@@ -146,11 +146,11 @@ public class CheckersGraphics extends GCanvas {
 		add(checker, j * square_width, i * square_height);
 		
 		if(checker_color == FIRST_COLOR) {
-			
 			checkers[i][j] = FIRST_PLAYER;
-		}else {
 			
+		}else {
 			checkers[i][j] = SECOND_PLAYER;
+			
 		}
 	}
 	
