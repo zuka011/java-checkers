@@ -155,6 +155,18 @@ public class CheckersGraphics extends GCanvas {
 		
 		return first < second ? first : second;
 	}
+	
+	private printGrid(int [][] grid) {
+		
+		print("{");
+		
+		for(int) {
+			for(int) {
+				
+			}
+			print("\n");
+		}
+	}
 
 	private double width, height;
 	private int [][] checkers = new int [N_ROWS][N_COLS];
