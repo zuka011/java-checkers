@@ -73,8 +73,6 @@ public class CheckersGraphics extends GCanvas {
 	
 	public void initialize(boolean reverse) {
 	
-		System.out.println("Here I am!");
-		
 		drawBoard();
 		
 		if(reverse) {
