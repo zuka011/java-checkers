@@ -22,8 +22,8 @@ public class CheckersGraphics extends GCanvas {
 	public class Checker extends GCompound {
 		
 		static final double OUTER_SCALE = 0.7;
-		static final double INNER_SCALE = 0.56;
-		static final double MID_SCALE = 0.6;
+		static final double INNER_SCALE = 0.36;
+		static final double MID_SCALE = 0.4;
 		
 		public Checker(double width, double height, boolean dark) {
 
