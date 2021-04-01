@@ -36,8 +36,8 @@ public class CheckersGraphics extends GCanvas {
 			GOval mid_circle = new GOval(mid_diameter, mid_diameter);
 			
 			add(outer_circle, (width - outer_diameter)/2, (height - outer_diameter)/2);
-			add(inner_cirlce, (width - inner_diameter)/2, (height - inner_diameter)/2);
 			add(mid_circle, (width - mid_diameter)/2, (height - mid_diameter)/2);
+			add(inner_cirlce, (width - inner_diameter)/2, (height - inner_diameter)/2);
 			
 			outer_circle.setFilled(true);
 			inner_cirlce.setFilled(true);
