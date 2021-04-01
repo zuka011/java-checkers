@@ -19,11 +19,11 @@ public class CheckersGraphics extends GCanvas {
 	private static final Color SECOND_COLOR = Color.gray;
 	private static final Color FIRST_COLOR = Color.red;
 	
+	private static final int EMPTY = 0;
 	private static final int FIRST_PLAYER = 1;
 	private static final int SECOND_PLAYER = 2;
 	private static final int FIRST_PLAYER_KING = 3;
 	private static final int SECOND_PLAYER_KING = 4;
-	private static final int EMPTY = 0;
 	
 	
 	public class Checker extends GCompound {
