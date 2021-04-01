@@ -84,11 +84,11 @@ public class CheckersGraphics extends GCanvas {
 		
 		if(reverse) {
 
-			addCheckers(N_ROWS - 3, SECOND_COLOR);
+			addCheckers(N_ROWS - N_CHECKER_ROWS, SECOND_COLOR);
 			addCheckers(0, FIRST_COLOR);	
 		} else {
 
-			addCheckers(N_ROWS - 3, FIRST_COLOR);	
+			addCheckers(N_ROWS - N_CHECKER_ROWS, FIRST_COLOR);	
 			addCheckers(0, SECOND_COLOR);
 		}
 	}
