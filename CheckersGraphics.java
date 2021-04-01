@@ -16,8 +16,8 @@ public class CheckersGraphics extends GCanvas {
 	private static final int N_CHECKER_ROWS = 3;
 	
 	private static final Color SQUARE_COLOR = Color.black;
-	private static final Color DARK_COLOR = Color.gray;
-	private static final Color LIGHT_COLOR = Color.red;
+	private static final Color SECOND_COLOR = Color.gray;
+	private static final Color FIRST_COLOR = Color.red;
 	
 	private static final int FIRST_PLAYER = 1;
 	private static final int SECOND_PLAYER = 2;
@@ -51,16 +51,16 @@ public class CheckersGraphics extends GCanvas {
 			
 			if(dark) {
 				
-				outer_circle.setFillColor(DARK_COLOR);
-				inner_cirlce.setFillColor(DARK_COLOR);
+				outer_circle.setFillColor(SECOND_COLOR);
+				inner_cirlce.setFillColor(SECOND_COLOR);
 				mid_circle.setFillColor(Color.WHITE);
 				
 				inner_cirlce.setColor(Color.white);
 				mid_circle.setColor(Color.white);
 			} else {
 
-				outer_circle.setFillColor(LIGHT_COLOR);
-				inner_cirlce.setFillColor(LIGHT_COLOR);
+				outer_circle.setFillColor(FIRST_COLOR);
+				inner_cirlce.setFillColor(FIRST_COLOR);
 				mid_circle.setFillColor(Color.WHITE);
 
 				inner_cirlce.setColor(Color.white);
@@ -83,12 +83,12 @@ public class CheckersGraphics extends GCanvas {
 		
 		if(reverse) {
 
-			addCheckers(N_ROWS - 3, DARK_COLOR);
-			addCheckers(0, LIGHT_COLOR);	
+			addCheckers(N_ROWS - 3, SECOND_COLOR);
+			addCheckers(0, FIRST_COLOR);	
 		} else {
 
-			addCheckers(N_ROWS - 3, LIGHT_COLOR);	
-			addCheckers(0, DARK_COLOR);
+			addCheckers(N_ROWS - 3, FIRST_COLOR);	
+			addCheckers(0, SECOND_COLOR);
 		}
 	}
 
@@ -136,7 +136,7 @@ public class CheckersGraphics extends GCanvas {
 		double square_width = width/N_ROWS;
 		double square_height = height/N_COLS;
 		
-		Checker checker = new Checker(square_width, square_height, checker_color == DARK_COLOR);
+		Checker checker = new Checker(square_width, square_height, checker_color == SECOND_COLOR);
 		
 		add(checker, j * square_width, i * square_height);
 	}
