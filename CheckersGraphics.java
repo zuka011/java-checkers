@@ -15,8 +15,6 @@ public class CheckersGraphics extends GCanvas {
 	private static final int N_COLS = 8;
 	private static final int N_CHECKER_ROWS = 3;
 	
-	private static final double CHECKER_SCALE = 0.7;
-	
 	private static final Color SQUARE_COLOR = Color.black;
 	private static final Color DARK_COLOR = Color.gray;
 	private static final Color LIGHT_COLOR = Color.red;
@@ -24,12 +22,16 @@ public class CheckersGraphics extends GCanvas {
 	public class Checker extends GCompound {
 		
 		public Checker(double width, double height, boolean dark) {
+			
+			static final double checker_scale = 0.7;
 
-			double outer_diameter = min(width, height) * CHECKER_SCALE;
-			double inner_diameter = outer_diameter * CHECKER_SCALE/1.25;
+			double outer_diameter = min(width, height) * checker_scale;
+			double inner_diameter = outer_diameter * checker_scale/1.25;
+			double mid_diameter = 
 			
 			GOval outer_circle = new GOval(outer_diameter, outer_diameter);
 			GOval inner_cirlce = new GOval(inner_diameter, inner_diameter);
+			GOval mid_circle = new GOval(mid_diameter, mid_diameter);
 			
 			add(outer_circle, (width - outer_diameter)/2, (height - outer_diameter)/2);
 			add(inner_cirlce, (width - inner_diameter)/2, (height - inner_diameter)/2);
