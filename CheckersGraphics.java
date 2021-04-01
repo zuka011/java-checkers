@@ -91,6 +91,8 @@ public class CheckersGraphics extends GCanvas {
 			addCheckers(N_ROWS - N_CHECKER_ROWS, FIRST_COLOR);	
 			addCheckers(0, SECOND_COLOR);
 		}
+		
+		 printGrid(checkers);
 	}
 
 	private void drawBoard() {
