@@ -131,13 +131,6 @@ public class CheckersGraphics extends GCanvas {
 			for(int j = skip_first ? 1 : 0; j < N_COLS; j += 2) {
 				addChecker(start_row + i, j, checker_color);
 				
-				if(checker_color == FIRST_COLOR) {
-					
-					checkers[start_row + i][j] = FIRST_PLAYER;
-				}else {
-					
-					checkers[start_row + i][j] = SECOND_PLAYER;
-				}
 			}
 			skip_first = !skip_first;
 		}
