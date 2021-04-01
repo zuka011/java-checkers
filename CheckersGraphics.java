@@ -23,6 +23,7 @@ public class CheckersGraphics extends GCanvas {
 	private static final int SECOND_PLAYER = 2;
 	private static final int FIRST_PLAYER_KING = 3;
 	private static final int SECOND_PLAYER_KING = 4;
+	private static final int EMPTY = 0;
 	
 	
 	public class Checker extends GCompound {
