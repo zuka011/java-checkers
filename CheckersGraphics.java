@@ -160,11 +160,14 @@ public class CheckersGraphics extends GCanvas {
 		
 		System.out.print("{");
 		
-		for(int) {
-			for(int) {
+		for(int i = 0; i < grid.length; i++) {
+			
+			int [] currRow = grid[i];
+			for(int j = 0; j < currRow.length; j++) {
 				
+				System.out.print(currRow[j] + ", ");
 			}
-			print("\n");
+			System.out.print("\n");
 		}
 	}
 
