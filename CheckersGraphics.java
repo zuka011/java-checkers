@@ -23,7 +23,7 @@ public class CheckersGraphics extends GCanvas {
 		
 		static final double OUTER_SCALE = 0.7;
 		static final double INNER_SCALE = 0.56;
-		static final double MID_SCALE = 0.60;
+		static final double MID_SCALE = 0.6;
 		
 		public Checker(double width, double height, boolean dark) {
 
