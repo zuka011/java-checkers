@@ -133,10 +133,10 @@ public class CheckersGraphics extends GCanvas {
 				
 				if(checker_color == FIRST_COLOR) {
 					
-					checkers[i][j] = FIRST_PLAYER;
+					checkers[start_row + i][j] = FIRST_PLAYER;
 				}else {
 					
-					checkers[i][j] = SECOND_PLAYER;
+					checkers[start_row + i][j] = SECOND_PLAYER;
 				}
 			}
 			skip_first = !skip_first;
