@@ -37,20 +37,24 @@ public class CheckersGraphics extends GCanvas {
 			
 			add(outer_circle, (width - outer_diameter)/2, (height - outer_diameter)/2);
 			add(inner_cirlce, (width - inner_diameter)/2, (height - inner_diameter)/2);
+			add(mid_circle, (width - mid_diameter)/2, (height - mid_diameter)/2);
 			
 			outer_circle.setFilled(true);
 			inner_cirlce.setFilled(true);
+			mid_circle.setFilled(true);
 			
 			if(dark) {
 				
 				outer_circle.setFillColor(DARK_COLOR);
 				inner_cirlce.setFillColor(DARK_COLOR);
+				mid_circle.setFillColor(Color.WHITE);
 				
 				inner_cirlce.setColor(Color.white);
 			} else {
 
 				outer_circle.setFillColor(LIGHT_COLOR);
 				inner_cirlce.setFillColor(LIGHT_COLOR);
+				mid_circle.setFillColor(Color.WHITE);
 
 				inner_cirlce.setColor(Color.white);
 			}
