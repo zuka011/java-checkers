@@ -19,6 +19,12 @@ public class CheckersGraphics extends GCanvas {
 	private static final Color DARK_COLOR = Color.gray;
 	private static final Color LIGHT_COLOR = Color.red;
 	
+	private static final int FIRST_PLAYER = 1;
+	private static final int SECOND_PLAYER = 2;
+	private static final int FIRST_PLAYER_ = 3;
+	private static final int SECOND_PLAYER_ = 4;
+	
+	
 	public class Checker extends GCompound {
 		
 		static final double OUTER_SCALE = 0.7;
