@@ -156,9 +156,9 @@ public class CheckersGraphics extends GCanvas {
 		return first < second ? first : second;
 	}
 	
-	private printGrid(int [][] grid) {
+	private void printGrid(int [][] grid) {
 		
-		print("{");
+		System.out.print("{");
 		
 		for(int) {
 			for(int) {
