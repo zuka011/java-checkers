@@ -169,7 +169,7 @@ public class CheckersGraphics extends GCanvas {
 			}
 			System.out.print("\n");
 		}
-		System.out.print("{");
+		System.out.print("}");
 	}
 
 	private double width, height;
