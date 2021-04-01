@@ -144,6 +144,14 @@ public class CheckersGraphics extends GCanvas {
 		Checker checker = new Checker(square_width, square_height, checker_color == SECOND_COLOR);
 		
 		add(checker, j * square_width, i * square_height);
+		
+		if(checker_color == FIRST_COLOR) {
+			
+			checkers[i][j] = FIRST_PLAYER;
+		}else {
+			
+			checkers[i][j] = SECOND_PLAYER;
+		}
 	}
 	
 	private double min(double first, double second) {
