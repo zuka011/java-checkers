@@ -50,6 +50,7 @@ public class CheckersGraphics extends GCanvas {
 				mid_circle.setFillColor(Color.WHITE);
 				
 				inner_cirlce.setColor(Color.white);
+				mid_circle.setColor(Color.white);
 			} else {
 
 				outer_circle.setFillColor(LIGHT_COLOR);
@@ -57,6 +58,7 @@ public class CheckersGraphics extends GCanvas {
 				mid_circle.setFillColor(Color.WHITE);
 
 				inner_cirlce.setColor(Color.white);
+				mid_circle.setColor(Color.white);
 			}
 		}	
 	}
