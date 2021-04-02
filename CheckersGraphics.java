@@ -305,6 +305,6 @@ public class CheckersGraphics extends GCanvas {
 	private double square_width;
 	private double square_height;
 	private int [][] checkers = new int [N_ROWS][N_COLS];
-	private int [][] highlight= new int [N_ROWS][N_COLS];
+	private int [][] highlight = new int [N_ROWS][N_COLS];
 	
 }
