@@ -7,6 +7,7 @@
 import acm.program.*;
 import acm.graphics.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 
 @SuppressWarnings("serial")
 public class CheckersGraphics extends GCanvas {
@@ -193,6 +194,14 @@ public class CheckersGraphics extends GCanvas {
 		Coordinate coordinate = new Coordinate(row, col);
 		
 		return coordinate;
+	}
+	
+	public void mouseClicked(MouseEvent e) {
+		
+		double x = e.getX();
+		double y = e.getY();
+		
+		getSquare(x, y);
 	}
 	
 	
