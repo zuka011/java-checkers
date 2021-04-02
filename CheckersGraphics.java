@@ -213,7 +213,7 @@ public class CheckersGraphics extends GCanvas {
 			
 			System.out.print("row: " + row + ", col: " + col + "\n");
 		}
-		
+
 	};
 		
 	private void printGrid(int [][] grid) {
