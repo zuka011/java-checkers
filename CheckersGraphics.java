@@ -129,11 +129,11 @@ public class CheckersGraphics extends GCanvas {
 		
 		boolean filled = false;
 		
-		for(int i = 0; i < N_ROWS; i++) {
-			for(int j = 0; j < N_COLS; j++) {
+		for(int row = 0; row < N_ROWS; row++) {
+			for(int col = 0; col < N_COLS; col++) {
 				
-				checkers[i][j] = EMPTY;
-				addSquare(i * square_width, j * square_height, square_width, square_height, filled);
+				checkers[row][col] = EMPTY;
+				addSquare(row * square_width, col * square_height, square_width, square_height, filled);
 				filled = !filled;
 			}
 			filled = !filled;
@@ -153,30 +153,30 @@ public class CheckersGraphics extends GCanvas {
 		
 		boolean skip_first = start_row % 2 == 0;
 		
-		for(int i = 0; i < N_CHECKER_ROWS; i++) {
+		for(int row = 0; row < N_CHECKER_ROWS; row++) {
 			
-			for(int j = skip_first ? 1 : 0; j < N_COLS; j += 2) {
-				addChecker(start_row + i, j, checker_color);
+			for(int col = skip_first ? 1 : 0; col < N_COLS; col += 2) {
+				addChecker(start_row + row, col, checker_color);
 				
 			}
 			skip_first = !skip_first;
 		}
 	}
 
-	private void addChecker(int i, int j, Color checker_color) {
+	private void addChecker(int row, int col, Color checker_color) {
 		
-		if(checkers[i][j] == EMPTY) {
+		if(checkers[row][col] == EMPTY) {
 			
 			Checker checker = new Checker(square_width, square_height, checker_color == SECOND_COLOR);
 			
-			add(checker, j * square_width, i * square_height);
+			add(checker, col * square_width, row * square_height);
 			
 			if(checker_color == FIRST_COLOR) {
 				
-				checkers[i][j] = FIRST_PLAYER;
+				checkers[row][col] = FIRST_PLAYER;
 			}else {
 				
-				checkers[i][j] = SECOND_PLAYER;
+				checkers[row][col] = SECOND_PLAYER;
 			}
 		}else {
 			
@@ -184,19 +184,19 @@ public class CheckersGraphics extends GCanvas {
 		}
 	}
 	
-	private void removeChecker(int i, int j) {
+	private void removeChecker(int row, int col) {
 		
-		double x = square_width * j + square_width / 2;
-		double y = square_height * i + square_height / 2;
+		double x = square_width * col + square_width / 2;
+		double y = square_height * row + square_height / 2;
 		
-		if(checkers[i][j] != EMPTY) {
+		if(checkers[row][col] != EMPTY) {
 			
 			remove(getElementAt(x, y));
-			checkers[i][j] = EMPTY;
+			checkers[row][col] = EMPTY;
 			
 		}else {
 			
-			System.out.print("No checker found at [" + i + ", " + j +"]\n");
+			System.out.print("No checker found at [" + row + ", " + col +"]\n");
 		}
 
 	}
@@ -283,12 +283,12 @@ public class CheckersGraphics extends GCanvas {
 		
 		System.out.print("{\n");
 		
-		for(int i = 0; i < grid.length; i++) {
+		for(int row = 0; row < grid.length; row++) {
 			
-			int [] curr_row = grid[i];
-			for(int j = 0; j < curr_row.length; j++) {
+			int [] curr_row = grid[row];
+			for(int col = 0; col < curr_row.length; col++) {
 				
-				System.out.print(curr_row[j] + ", ");
+				System.out.print(curr_row[col] + ", ");
 			}
 			System.out.print("\n");
 		}
