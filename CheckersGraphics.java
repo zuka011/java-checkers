@@ -260,6 +260,7 @@ public class CheckersGraphics extends GCanvas {
 			highlighter_rect.sendToBack();
 			highlighter_rect.sendForward();
 			highlighter_rect.sendForward();
+			highlighter_rect.sendForward();
 		} else {
 			
 			GRect highlighter_rect = (GRect) getElementAt(col * square_width + 1, row * square_height + 1);
