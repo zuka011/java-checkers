@@ -240,9 +240,6 @@ public class CheckersGraphics extends GCanvas {
 	
 	private Coordinate getSquare(double x, double y) {
 		
-		double square_width = width/N_ROWS;
-		double square_height = height/N_COLS;
-		
 		int col =  (int) (x / square_width);
 		int row = (int) (y / square_height);
 		
