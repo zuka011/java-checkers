@@ -266,6 +266,7 @@ public class CheckersGraphics extends GCanvas {
 			System.out.print("row: " + row + ", col: " + col + "\n");
 			
 			//removeChecker(row, col);
+			
 		}
 
 	};
@@ -287,6 +288,7 @@ public class CheckersGraphics extends GCanvas {
 	}
 
 	private double width, height;
+	private double last_x, last_y;
 	private int [][] checkers = new int [N_ROWS][N_COLS];
 	
 }
