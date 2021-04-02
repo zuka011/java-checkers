@@ -234,7 +234,7 @@ public class CheckersGraphics extends GCanvas {
 	
 	private void highlightSquare(int row, int col, boolean light) {
 		
-		if(light == )
+		if(light == highlight[row][col])
 	}
 	
 	private double min(double first, double second) {
