@@ -7,6 +7,7 @@
 import acm.program.*;
 import acm.graphics.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 @SuppressWarnings("serial")
@@ -213,7 +214,7 @@ public class CheckersGraphics extends GCanvas {
 			System.out.print("row: " + row + ", col: " + col + "\n");
 		}
 		
-	}
+	};
 		
 	private void printGrid(int [][] grid) {
 		
