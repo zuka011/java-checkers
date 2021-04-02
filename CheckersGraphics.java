@@ -195,6 +195,7 @@ public class CheckersGraphics extends GCanvas {
 		return coordinate;
 	}
 	
+	
 	private void printGrid(int [][] grid) {
 		
 		System.out.print("{\n");
