@@ -105,7 +105,7 @@ public class CheckersGraphics extends GCanvas {
 	
 	public void initialize(boolean reverse) {
 		
-		this.addMouseListener(null);
+		this.addMouseListener(mouse_listener);
 		
 		drawBoard();
 		
