@@ -202,7 +202,7 @@ public class CheckersGraphics extends GCanvas {
 	}
 	
 	
-	private void moveChecker(int start_i, int start_j, int end_i, int end_j) {
+	private void moveChecker(int start_row, int start_col, int end_row, int end_col) {
 		
 		
 	}
