@@ -232,6 +232,10 @@ public class CheckersGraphics extends GCanvas {
 		}
 	}
 	
+	private void highlight(int row, int col, boolean light) {
+		
+		
+	}
 	
 	private double min(double first, double second) {
 		
