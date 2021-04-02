@@ -201,6 +201,12 @@ public class CheckersGraphics extends GCanvas {
 
 	}
 	
+	
+	private void moveChecker(int start_i, int start_j, int end_i, int end_j) {
+		
+	}
+	
+	
 	private double min(double first, double second) {
 		
 		return first < second ? first : second;
