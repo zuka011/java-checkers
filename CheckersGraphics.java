@@ -190,6 +190,7 @@ public class CheckersGraphics extends GCanvas {
 		int row =  (int) (x / square_width);
 		int col = (int) (y / square_height);
 		
+		Coordinate coordinate = new Coordinate(row, col);
 		
 	}
 	
