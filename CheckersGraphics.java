@@ -248,6 +248,7 @@ public class CheckersGraphics extends GCanvas {
 		
 		if(light) {
 			
+			
 		}
 	}
 	
