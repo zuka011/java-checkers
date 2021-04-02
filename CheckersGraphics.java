@@ -289,7 +289,7 @@ public class CheckersGraphics extends GCanvas {
 	}
 
 	private double width, height;
-	private double last_x, last_y;
+	private double last_row, last_col;
 	private int [][] checkers = new int [N_ROWS][N_COLS];
 	
 }
