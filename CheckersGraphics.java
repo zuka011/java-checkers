@@ -216,11 +216,13 @@ public class CheckersGraphics extends GCanvas {
 			Color color;
 			
 			if(checkers[start_row][start_col] == FIRST_PLAYER || checkers[start_row][start_col] == FIRST_PLAYER_KING) {
-				
+
+				System.out.println("Now picking second colour.");
 				color = FIRST_COLOR;
 				
 			}else {
 				
+				System.out.println("Now picking second colour.");
 				color = SECOND_COLOR;
 			}
 			
