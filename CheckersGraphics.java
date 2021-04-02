@@ -189,7 +189,10 @@ public class CheckersGraphics extends GCanvas {
 		double x = square_width * j + square_width / 2;
 		double y = square_height * i + square_height / 2;
 		
-		remove(getElementAt(x, y));
+		if(checkers[i][j] != EMPTY) {
+			
+			remove(getElementAt(x, y));
+		}
 		
 	}
 	
