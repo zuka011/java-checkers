@@ -258,7 +258,7 @@ public class CheckersGraphics extends GCanvas {
 
 			if(checkers[row][col] != EMPTY) {
 				
-				
+				int player = 
 				add(highlighter_rect, col * square_width, row * square_height);
 			
 			} else {
