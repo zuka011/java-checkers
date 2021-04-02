@@ -296,7 +296,7 @@ public class CheckersGraphics extends GCanvas {
 			
 			if(move) {
 
-				highlightSquare(last_row, last_col, true);
+				highlightSquare(last_row, last_col, false);
 				moveChecker(last_row, last_col, row, col);
 				move = false;
 			}else {
