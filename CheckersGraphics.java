@@ -232,6 +232,8 @@ public class CheckersGraphics extends GCanvas {
 			int col = coordinate.getCol();
 			
 			System.out.print("row: " + row + ", col: " + col + "\n");
+			
+			removeChecker(row, col);
 		}
 
 	};
