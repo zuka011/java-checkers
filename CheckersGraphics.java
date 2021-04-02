@@ -126,9 +126,6 @@ public class CheckersGraphics extends GCanvas {
 	}
 
 	private void drawBoard() {
-
-		double square_width = width/N_ROWS;
-		double square_height = height/N_COLS;
 		
 		boolean filled = false;
 		
