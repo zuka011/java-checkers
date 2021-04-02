@@ -181,6 +181,11 @@ public class CheckersGraphics extends GCanvas {
 		}
 	}
 	
+	private void removeChecker(int i, int j) {
+		
+		
+	}
+	
 	private double min(double first, double second) {
 		
 		return first < second ? first : second;
