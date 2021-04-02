@@ -267,6 +267,7 @@ public class CheckersGraphics extends GCanvas {
 			
 			//removeChecker(row, col);
 			
+			
 		}
 
 	};
