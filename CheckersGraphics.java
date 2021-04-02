@@ -186,9 +186,6 @@ public class CheckersGraphics extends GCanvas {
 	
 	private void removeChecker(int i, int j) {
 		
-		double square_width = width/N_ROWS;
-		double square_height = height/N_COLS;
-		
 		double x = square_width * j + square_width / 2;
 		double y = square_height * i + square_height / 2;
 		
