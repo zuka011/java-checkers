@@ -214,7 +214,7 @@ public class CheckersGraphics extends GCanvas {
 				
 				color = FIRST_COLOR;
 				
-			}else (checkers[start_row][start_col] == SECOND_PLAYER || checkers[start_row][start_col] == SECOND_PLAYER_KING) {
+			}else {
 				
 				color = SECOND_COLOR;
 			}
