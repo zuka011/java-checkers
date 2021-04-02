@@ -225,6 +225,10 @@ public class CheckersGraphics extends GCanvas {
 			}
 			
 			addChecker(end_row, end_col, color);
+			
+		}else {
+			
+			System.out.print();
 		}
 	}
 	
