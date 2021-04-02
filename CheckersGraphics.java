@@ -303,7 +303,7 @@ public class CheckersGraphics extends GCanvas {
 				last_row = row;
 				last_col = col;
 			
-				highlightRect(last_row, last_col, )
+				highlightRect(last_row, last_col, true);
 				move = true;
 			}
 			
