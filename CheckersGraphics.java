@@ -248,7 +248,7 @@ public class CheckersGraphics extends GCanvas {
 		
 		if(light) {
 			
-			
+			GRect highlighter_rect = 
 		}
 	}
 	
