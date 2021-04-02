@@ -271,7 +271,8 @@ public class CheckersGraphics extends GCanvas {
 				move = false;
 			}else {
 				
-				
+				last_row = row;
+				last_col = col;
 				move = true;
 			}
 			
