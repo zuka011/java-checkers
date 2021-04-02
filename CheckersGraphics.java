@@ -259,7 +259,7 @@ public class CheckersGraphics extends GCanvas {
 			add(highlighter_rect, col * square_width, row * square_height);
 			
 			if(checkers[row][col] != EMPTY) {
-				
+				moveChecker(row, col, row, col);
 			}
 		} else {
 			
