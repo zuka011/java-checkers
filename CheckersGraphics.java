@@ -222,7 +222,7 @@ public class CheckersGraphics extends GCanvas {
 				
 			}else {
 				
-				System.out.println("Now picking second colour. piece: \" + checkers[start_row][start_col]);
+				System.out.println("Now picking second colour. piece: " + checkers[start_row][start_col]);
 				color = SECOND_COLOR;
 			}
 			
