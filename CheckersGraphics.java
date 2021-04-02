@@ -201,8 +201,8 @@ public class CheckersGraphics extends GCanvas {
 		double square_width = width/N_ROWS;
 		double square_height = height/N_COLS;
 		
-		int row =  (int) (x / square_width);
-		int col = (int) (y / square_height);
+		int col =  (int) (x / square_width);
+		int row = (int) (y / square_height);
 		
 		Coordinate coordinate = new Coordinate(row, col);
 		
