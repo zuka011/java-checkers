@@ -186,8 +186,8 @@ public class CheckersGraphics extends GCanvas {
 		double square_width = width/N_ROWS;
 		double square_height = height/N_COLS;
 		
-		double y = square_width * j + square_width / 2;
-		double x = square_height * i + square_height / 2;
+		double y = square_width * i + square_width / 2;
+		double x = square_height * j + square_height / 2;
 		
 		
 		
