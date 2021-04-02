@@ -206,7 +206,7 @@ public class CheckersGraphics extends GCanvas {
 		int row = coordinate.getRow();
 		int col = coordinate.getCol();
 		
-		System.out.print("row: " + row + "col: " + col + "\n");
+		System.out.print("row: " + row + " col: " + col + "\n");
 	}
 	
 	
