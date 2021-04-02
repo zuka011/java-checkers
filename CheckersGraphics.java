@@ -267,6 +267,7 @@ public class CheckersGraphics extends GCanvas {
 			
 			if(move) {
 				
+				
 				move = false;
 			}
 			
