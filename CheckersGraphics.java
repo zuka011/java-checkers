@@ -249,7 +249,7 @@ public class CheckersGraphics extends GCanvas {
 		if(light) {
 			
 			GRect highlighter_rect = new GRect(square_width, square_height);
-			highlighter_rect.set
+			highlighter_rect.setColor();
 			
 		}
 	}
