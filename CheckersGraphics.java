@@ -259,7 +259,7 @@ public class CheckersGraphics extends GCanvas {
 			highlighter_rect.sendBackward();
 		} else {
 			
-			GRect highlighter_rect = getElementAt(col * square_width + 1, row * square_height + 1)
+			GRect highlighter_rect = getElementAt(col * square_width + 1, row * square_height + 1);
 		}
 	}
 	
