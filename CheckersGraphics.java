@@ -26,6 +26,12 @@ public class CheckersGraphics extends GCanvas {
 	private static final int SECOND_PLAYER_KING = 4;
 	
 	
+	
+	public class Coordinate {
+		
+	}
+	
+	
 	public class Checker extends GCompound {
 		
 		static final double OUTER_SCALE = 0.7;
@@ -166,6 +172,8 @@ public class CheckersGraphics extends GCanvas {
 		
 		int row =  (int) (x / square_width);
 		int col = (int) (y / square_height);
+		
+		
 	}
 	
 	private void printGrid(int [][] grid) {
