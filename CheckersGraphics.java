@@ -17,6 +17,7 @@ public class CheckersGraphics extends GCanvas {
 	private static final int N_COLS = 8;
 	private static final int N_CHECKER_ROWS = 3;
 	
+	private static final Color HIGHLIGHT_COLOR = Color.blue;
 	private static final Color SQUARE_COLOR = Color.black;
 	private static final Color SECOND_COLOR = Color.gray;
 	private static final Color FIRST_COLOR = Color.red;
