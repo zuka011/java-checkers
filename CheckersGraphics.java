@@ -214,4 +214,5 @@ public class CheckersGraphics extends GCanvas {
 
 	private double width, height;
 	private int [][] checkers = new int [N_ROWS][N_COLS];
+	
 }
