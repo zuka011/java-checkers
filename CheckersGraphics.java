@@ -259,7 +259,7 @@ public class CheckersGraphics extends GCanvas {
 			highlighter_rect.sendBackward();
 		} else {
 			
-			GRect 
+			GRect highlighter_rect = 
 		}
 	}
 	
