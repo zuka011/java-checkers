@@ -237,9 +237,15 @@ public class CheckersGraphics extends GCanvas {
 		if(light == highlight[row][col]) {
 			
 			if(light == true) {
+				
 				System.out.println("Square already highlighted.");
+			} else {
+				
+				System.out.println("Square not highlited.");
 			}
 		}
+		
+		
 	}
 	
 	private double min(double first, double second) {
