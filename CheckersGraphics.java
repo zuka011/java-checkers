@@ -261,6 +261,7 @@ public class CheckersGraphics extends GCanvas {
 			
 			if(checkers[row][col] != EMPTY) {
 				moveChecker(row, col, row, col);
+				moveChecker(row, col, row, col);
 			}
 		} else {
 			
