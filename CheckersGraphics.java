@@ -264,7 +264,7 @@ public class CheckersGraphics extends GCanvas {
 			remove(highlighter_rect);
 		}
 		
-		highlight[row][col] = 
+		highlight[row][col] = light;
 	}
 	
 	private double min(double first, double second) {
