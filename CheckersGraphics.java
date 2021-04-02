@@ -236,6 +236,7 @@ public class CheckersGraphics extends GCanvas {
 		
 		if(light == highlight[row][col]) {
 			
+			
 		}
 	}
 	
