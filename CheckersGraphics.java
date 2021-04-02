@@ -192,6 +192,8 @@ public class CheckersGraphics extends GCanvas {
 		if(checkers[i][j] != EMPTY) {
 			
 			remove(getElementAt(x, y));
+			checkers[i][j] = EMPTY;
+			
 		}else {
 			
 			System.out.print("No checker found at [" + i + ", " + j +"]\n");
