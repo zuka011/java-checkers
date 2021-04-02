@@ -182,7 +182,7 @@ public class CheckersGraphics extends GCanvas {
 		return first < second ? first : second;
 	}
 	
-	private void getSquare(double x, double y) {
+	private Coordinate getSquare(double x, double y) {
 		
 		double square_width = width/N_ROWS;
 		double square_height = height/N_COLS;
@@ -192,6 +192,7 @@ public class CheckersGraphics extends GCanvas {
 		
 		Coordinate coordinate = new Coordinate(row, col);
 		
+		return coordinate;
 	}
 	
 	private void printGrid(int [][] grid) {
