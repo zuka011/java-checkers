@@ -294,7 +294,7 @@ public class CheckersGraphics extends GCanvas {
 	}
 
 	private double width, height;
-	private double last_row, last_col;
+	private int last_row, last_col;
 	private boolean move = false;
 	private int [][] checkers = new int [N_ROWS][N_COLS];
 	
