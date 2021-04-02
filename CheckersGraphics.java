@@ -258,8 +258,8 @@ public class CheckersGraphics extends GCanvas {
 
 			if(checkers[row][col] != EMPTY) {
 				
+				
 				add(highlighter_rect, col * square_width, row * square_height);
-				highlighter_rect.sendBackward();
 			
 			} else {
 
