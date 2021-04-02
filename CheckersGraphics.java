@@ -198,20 +198,23 @@ public class CheckersGraphics extends GCanvas {
 		return coordinate;
 	}
 	
-	public void mouseClicked(MouseEvent e) {
+	private MouseAdapter mouse_listener = new MouseAdapter() {
 		
-		double x = e.getX();
-		double y = e.getY();
+		public void mouseClicked(MouseEvent e) {
+			
+			double x = e.getX();
+			double y = e.getY();
+			
+			Coordinate coordinate = getSquare(x, y);
+			
+			int row = coordinate.getRow();
+			int col = coordinate.getCol();
+			
+			System.out.print("row: " + row + ", col: " + col + "\n");
+		}
 		
-		Coordinate coordinate = getSquare(x, y);
-		
-		int row = coordinate.getRow();
-		int col = coordinate.getCol();
-		
-		System.out.print("row: " + row + ", col: " + col + "\n");
 	}
-	
-	
+		
 	private void printGrid(int [][] grid) {
 		
 		System.out.print("{\n");
