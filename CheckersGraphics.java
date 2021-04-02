@@ -232,7 +232,7 @@ public class CheckersGraphics extends GCanvas {
 		}
 	}
 	
-	private void highlight(int row, int col, boolean light) {
+	private void highlightSquare(int row, int col, boolean light) {
 		
 		
 	}
