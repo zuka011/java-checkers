@@ -257,6 +257,10 @@ public class CheckersGraphics extends GCanvas {
 			highlighter_rect.setFillColor(HIGHLIGHT_COLOR);
 			
 			add(highlighter_rect, col * square_width, row * square_height);
+			
+			if(checkers[row][col] != EMPTY) {
+				
+			}
 		} else {
 			
 			GRect highlighter_rect = (GRect) getElementAt(col * square_width + 1, row * square_height + 1);
