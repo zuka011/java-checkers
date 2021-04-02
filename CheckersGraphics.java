@@ -204,7 +204,10 @@ public class CheckersGraphics extends GCanvas {
 	
 	private void moveChecker(int start_row, int start_col, int end_row, int end_col) {
 		
+		if(checkers[start_row][start_col] != EMPTY && checkers[end_row][end_col]  == EMPTY) {
 		
+			
+		}
 	}
 	
 	
