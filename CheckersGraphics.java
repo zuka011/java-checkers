@@ -29,7 +29,10 @@ public class CheckersGraphics extends GCanvas {
 	
 	public class Coordinate {
 		
+		private int row, col;
+		
 		public Coordinate(int row, int col) {
+			
 			
 		}
 	}
