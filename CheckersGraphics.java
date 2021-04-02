@@ -255,6 +255,7 @@ public class CheckersGraphics extends GCanvas {
 			highlighter_rect.setFilled(true);
 			highlighter_rect.setFillColor(HIGHLIGHT_COLOR);
 			
+			add();
 		}
 	}
 	
