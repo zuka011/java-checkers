@@ -170,8 +170,8 @@ public class CheckersGraphics extends GCanvas {
 			
 			Checker checker = new Checker(square_width, square_height, checker_color == SECOND_COLOR);
 
-			checker.sendToFront();
 			add(checker, col * square_width, row * square_height);
+			checker.sendToFront();
 			
 			if(checker_color == FIRST_COLOR) {
 				
