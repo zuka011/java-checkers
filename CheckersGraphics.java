@@ -159,6 +159,12 @@ public class CheckersGraphics extends GCanvas {
 		return first < second ? first : second;
 	}
 	
+	private void getSquare(double x, double y) {
+		
+		double square_width = width/N_ROWS;
+		double square_height = height/N_COLS;
+	}
+	
 	private void printGrid(int [][] grid) {
 		
 		System.out.print("{\n");
