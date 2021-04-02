@@ -295,7 +295,8 @@ public class CheckersGraphics extends GCanvas {
 			System.out.print("row: " + row + ", col: " + col + "\n");
 			
 			if(move) {
-				
+
+				highlightSquare(last_row, last_col, true);
 				moveChecker(last_row, last_col, row, col);
 				move = false;
 			}else {
