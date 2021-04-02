@@ -166,8 +166,6 @@ public class CheckersGraphics extends GCanvas {
 	private void addChecker(int i, int j, Color checker_color) {
 		
 		if(checkers[i][j] == EMPTY) {
-			double square_width = width/N_ROWS;
-			double square_height = height/N_COLS;
 			
 			Checker checker = new Checker(square_width, square_height, checker_color == SECOND_COLOR);
 			
