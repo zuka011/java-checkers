@@ -243,6 +243,7 @@ public class CheckersGraphics extends GCanvas {
 				
 				System.out.println("Square not highlited.");
 			}
+			return;
 		}
 		
 		
