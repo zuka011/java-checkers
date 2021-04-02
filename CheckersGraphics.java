@@ -107,6 +107,9 @@ public class CheckersGraphics extends GCanvas {
 		
 		this.addMouseListener(mouse_listener);
 		
+		square_width = width/N_ROWS;
+		square_height = height/N_COLS;
+		
 		drawBoard();
 		
 		if(reverse) {
@@ -306,8 +309,8 @@ public class CheckersGraphics extends GCanvas {
 	private double width, height;
 	private int last_row, last_col;
 	private boolean move = false;
-	private double square_width = width/N_ROWS;
-	private double square_height = height/N_COLS;
+	private double square_width;
+	private double square_height;
 	private int [][] checkers = new int [N_ROWS][N_COLS];
 	
 }
