@@ -105,7 +105,7 @@ public class CheckersGraphics extends GCanvas {
 		for(int i = 0; i < N_ROWS; i++) {
 			for(int j = 0; j < N_COLS; j++) {
 				
-				checkers[i][j] = 0;
+				checkers[i][j] = EMPTY;
 				addSquare(i * square_width, j * square_height, square_width, square_height, filled);
 				filled = !filled;
 			}
