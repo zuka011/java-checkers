@@ -275,7 +275,7 @@ public class CheckersGraphics extends GCanvas {
 					throw new RuntimeException();
 				}
 				
-				remove(row, col);
+				removeChecker(row, col);
 				add(highlighter_rect, col * square_width, row * square_height);
 				addChecker(row, col, color);
 				
