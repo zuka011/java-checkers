@@ -189,6 +189,8 @@ public class CheckersGraphics extends GCanvas {
 		double y = square_width * i + square_width / 2;
 		double x = square_height * j + square_height / 2;
 		
+		
+		
 	}
 	
 	private double min(double first, double second) {
