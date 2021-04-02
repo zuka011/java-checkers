@@ -265,8 +265,12 @@ public class CheckersGraphics extends GCanvas {
 			
 			System.out.print("row: " + row + ", col: " + col + "\n");
 			
-			//removeChecker(row, col);
+			if(move) {
+				
+				
+			}
 			
+			//removeChecker(row, col);
 			
 		}
 
