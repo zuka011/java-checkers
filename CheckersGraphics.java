@@ -246,7 +246,9 @@ public class CheckersGraphics extends GCanvas {
 			return;
 		}
 		
-		
+		if(light) {
+			
+		}
 	}
 	
 	private double min(double first, double second) {
