@@ -180,6 +180,9 @@ public class CheckersGraphics extends GCanvas {
 				checkers[i][j] = SECOND_PLAYER;
 				
 			}
+		}else {
+			
+			System.out.print("Could not add a checker\n");
 		}
 	}
 	
