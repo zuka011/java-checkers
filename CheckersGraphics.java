@@ -36,6 +36,11 @@ public class CheckersGraphics extends GCanvas {
 			this.row = row;
 			this.col = col;
 		}
+		
+		public getRow() {
+			
+			return row;
+		}
 	}
 	
 	
