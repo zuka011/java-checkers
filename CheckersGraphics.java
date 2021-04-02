@@ -275,9 +275,10 @@ public class CheckersGraphics extends GCanvas {
 					throw new RuntimeException();
 				}
 				
-				addChecker(row, col, )
+				remove(row, col);
 				add(highlighter_rect, col * square_width, row * square_height);
-			
+				addChecker(row, col, color);
+				
 			} else {
 
 				add(highlighter_rect, col * square_width, row * square_height);
