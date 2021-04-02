@@ -213,6 +213,10 @@ public class CheckersGraphics extends GCanvas {
 			if(checkers[start_row][start_col] == FIRST_PLAYER || checkers[start_row][start_col] == FIRST_PLAYER_KING) {
 				
 				color = FIRST_COLOR;
+				
+			}else if (checkers[start_row][start_col] == FIRST_PLAYER || checkers[start_row][start_col] == FIRST_PLAYER_KING) {
+				
+				color = FIRST_COLOR;
 			}
 			
 			addChecker(end_row, end_col, color);
