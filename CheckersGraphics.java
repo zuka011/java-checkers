@@ -257,6 +257,8 @@ public class CheckersGraphics extends GCanvas {
 			
 			add(highlighter_rect, col * square_width, row * square_height);
 			highlighter_rect.sendBackward();
+		} else {
+			
 		}
 	}
 	
