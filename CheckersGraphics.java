@@ -58,6 +58,7 @@ public class CheckersGraphics extends GCanvas {
 		
 		public boolean equals(Coordinate other) {
 			
+			return row == other.row && col == other.col;
 		}
 	}
 	
