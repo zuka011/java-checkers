@@ -378,10 +378,7 @@ public class CheckersGraphics extends GCanvas {
 				move = false;
 			}else {
 				
-				last_row = row;
-				last_col = col;
-			
-				HashSet<Coordinate> moves = possibleMoves(row, col);
+HashSet<Coordinate> moves = possibleMoves(row, col);
 				
 				Iterator<Coordinate> moves_it = moves.iterator();
 				
@@ -390,7 +387,10 @@ public class CheckersGraphics extends GCanvas {
 					System.out.println("HERE");
 					Coordinate curr_coordinate = moves_it.next();
 					highlightSquare(curr_coordinate.getRow(), curr_coordinate.getCol(), true, Color.YELLOW);
-				}	
+				}
+				
+				last_row = row;
+				last_col = col;	
 				
 				highlightSquare(last_row, last_col, true);
 				move = true;
