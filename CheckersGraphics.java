@@ -408,19 +408,7 @@ public class CheckersGraphics extends GCanvas {
 				clearHighlights();
 				
 				if(last_moves.contains(new Coordinate(row, col))) moveChecker(last_row, last_col, row, col);
-				else {
-					
-					System.out.println("Not a valid move. Valid Moves: ");
-					
-					Iterator<Coordinate> moves_it = last_moves.iterator();
-					
-					while(moves_it.hasNext()) {
-						
-						System.out.println(moves_it.next());
-					}
-					
-					System.out.println(new Coordinate(row, col).equals(new Coordinate(row, col)));
-				}
+				else System.out.println("Not a valid move.");
 
 				move = false;
 			}else {
