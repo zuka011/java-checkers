@@ -253,7 +253,7 @@ public class CheckersGraphics extends GCanvas {
 		case FIRST_PLAYER:
 		case SECOND_PLAYER:
 			
-			// ... Something .. 
+			// ... Something ...
 		}
 		
 		return null;
