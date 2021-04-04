@@ -99,6 +99,7 @@ public class CheckersGraphics extends GCanvas {
 				
 				inner_cirlce.setColor(Color.white);
 				mid_circle.setColor(Color.white);
+				break;
 			}
 		}	
 	}
