@@ -59,7 +59,7 @@ public class CheckersGraphics extends GCanvas {
 		@Override
 	    public boolean equals(Object o)  {
 			
-			Coordinate other_coordinate = (Coordinate) other;
+			Coordinate other_coordinate = (Coordinate) o;
 			
 			System.out.println("Comparing " + this + " with " + other);
 			
