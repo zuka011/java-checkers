@@ -129,7 +129,8 @@ public class CheckersGraphics extends GCanvas {
 	}
 	
 	public void initialize(boolean reverse) {
-		
+
+		this.reverse = reverse;
 		this.addMouseListener(mouse_listener);
 		
 		square_width = width/N_ROWS;
