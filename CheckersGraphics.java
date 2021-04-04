@@ -254,13 +254,16 @@ public class CheckersGraphics extends GCanvas {
 		case SECOND_PLAYER:
 			
 			// ... Something ...
-			break;
-			
+			break;	
 		case FIRST_PLAYER_KING:
 		case SECOND_PLAYER_KING:
 			
 			// ... Something ...
 			break;
+		default:
+			
+			System.out.println("Not a valid player type.");
+			throw new Error();
 		}
 		
 		return null;
