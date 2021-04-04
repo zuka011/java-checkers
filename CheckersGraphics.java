@@ -248,6 +248,7 @@ public class CheckersGraphics extends GCanvas {
 		switch(player) {
 		
 		case EMPTY:
+			return possibleMoves;
 		}
 		
 		return null;
