@@ -50,7 +50,8 @@ public class CheckersGraphics extends GCanvas {
 			
 			return col;
 		}
-		
+
+		@Override
 		public String toString() {
 			
 			return "[" + row + ", " + col +"]";
