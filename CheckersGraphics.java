@@ -119,7 +119,7 @@ public class CheckersGraphics extends GCanvas {
 		} else {
 
 			addCheckers(N_ROWS - N_CHECKER_ROWS, FIRST_COLOR);	
-			addCheckers(0, SECOND_COLOR);
+			addCheckers(0, FIRST_PLAYER);
 		}
 		
 		 printGrid(checkers);
