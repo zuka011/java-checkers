@@ -167,7 +167,7 @@ public class CheckersGraphics extends GCanvas {
 		
 		if(checkers[row][col] == EMPTY) {
 			
-			Checker checker = new Checker(square_width, square_height, checker_color == SECOND_COLOR);
+			Checker checker = new Checker(square_width, square_height, player);
 
 			add(checker, col * square_width, row * square_height);
 			checker.sendToFront();
