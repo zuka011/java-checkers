@@ -55,9 +55,7 @@ public class CheckersGraphics extends GCanvas {
 			
 			return "[" + row + ", " + col +"]";
 		}
-		
-		"something".equals("other something");
-		
+				
 		public boolean equals(Coordinate other) {
 			
 			return row == other.row && col == other.col;
