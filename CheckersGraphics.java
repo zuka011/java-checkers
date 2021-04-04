@@ -247,7 +247,7 @@ public class CheckersGraphics extends GCanvas {
 		
 		switch(player) {
 		
-		
+		case 
 		}
 		
 		return null;
