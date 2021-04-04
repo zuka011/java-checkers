@@ -203,6 +203,8 @@ public class CheckersGraphics extends GCanvas {
 		
 		if(checkers[start_row][start_col] != EMPTY && checkers[end_row][end_col]  == EMPTY) {
 		
+			int player = checkers[start_row][start_col];
+			
 			removeChecker(start_row, start_col);
 			addChecker(end_row, end_col, checkers[start_row][start_col]);
 			
