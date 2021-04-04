@@ -203,25 +203,8 @@ public class CheckersGraphics extends GCanvas {
 		
 		if(checkers[start_row][start_col] != EMPTY && checkers[end_row][end_col]  == EMPTY) {
 		
-			Color color;
-			
-			if(checkers[start_row][start_col] == FIRST_PLAYER || checkers[start_row][start_col] == FIRST_PLAYER_KING) {
-
-				System.out.println("Now picking first colour. piece: " + checkers[start_row][start_col]);
-				color = FIRST_COLOR;
-				
-			}else if (checkers[start_row][start_col] == SECOND_PLAYER || checkers[start_row][start_col] == SECOND_PLAYER_KING){
-				
-				System.out.println("Now picking second colour. piece: " + checkers[start_row][start_col]);
-				color = SECOND_COLOR;
-			}else {
-				
-				System.out.println("Trying to move non-existing checker");
-				throw new RuntimeException();
-			}
-
 			removeChecker(start_row, start_col);
-			addChecker(end_row, end_col, color);
+			addChecker(end_row, end_col, checkers[start_row][start_col]);
 			
 		}else {
 			
