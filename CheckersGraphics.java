@@ -325,7 +325,7 @@ public class CheckersGraphics extends GCanvas {
 		return first < second ? first : second;
 	}
 	
-	private boolean inBounds(double value, double low, double high) {
+	private boolean inBounds(Coordinate coordinate) {
 		
 		return low <= value && value <= high;
 	}
