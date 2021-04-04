@@ -172,12 +172,9 @@ public class CheckersGraphics extends GCanvas {
 			add(checker, col * square_width, row * square_height);
 			checker.sendToFront();
 			
-			if(checker_color == FIRST_COLOR) {
-				
-				checkers[row][col] = FIRST_PLAYER;
-			}else {
-				
-				checkers[row][col] = SECOND_PLAYER;
+			
+			checkers[row][col] = player;
+			
 			}
 		}else {
 			
