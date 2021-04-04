@@ -29,7 +29,6 @@ public class CheckersGraphics extends GCanvas {
 	private static final int SECOND_PLAYER_KING = 4;
 	
 	
-	
 	public class Coordinate {
 		
 		private int row, col;
