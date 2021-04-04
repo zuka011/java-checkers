@@ -49,7 +49,7 @@ public class CheckersGraphics extends GCanvas {
 			return col;
 		}
 		
-		String toString() {
+		public String toString() {
 			
 			return "[" + row + ", " + col +"]";
 		}
