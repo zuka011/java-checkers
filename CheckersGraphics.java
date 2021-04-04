@@ -379,6 +379,9 @@ public class CheckersGraphics extends GCanvas {
 				
 				while(moves_it.hasNext()) {
 					
+					Coordinate curr_coordinate = moves_it.next();
+					
+					highlightSquare();
 				}
 				
 				highlightSquare(last_row, last_col, false);
