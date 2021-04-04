@@ -294,7 +294,7 @@ public class CheckersGraphics extends GCanvas {
 		
 		for(int i = 0; i < N_ROWS; i++) {
 			for(int j = 0; j < N_COLS; j++) {
-				highlightSquare(i, j, false);
+				if(highlight[i][j]) highlightSquare(i, j, false);
 			}
 		}
 	}
