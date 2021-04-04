@@ -379,6 +379,7 @@ public class CheckersGraphics extends GCanvas {
 				
 				while(moves_it.hasNext()) {
 					
+					System.out.println("HERE");
 					Coordinate curr_coordinate = moves_it.next();
 					highlightSquare(curr_coordinate.getRow(), curr_coordinate.getCol(), true, Color.YELLOW);
 				}
