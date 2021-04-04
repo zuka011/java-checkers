@@ -292,6 +292,8 @@ public class CheckersGraphics extends GCanvas {
 		int col =  (int) (x / square_width);
 		int row = (int) (y / square_height);
 		
+		if(!inBounds(row) || !inBounds(col)) return new Coordinate(-1, -1);
+		
 		Coordinate coordinate = new Coordinate(row, col);
 		
 		return coordinate;
