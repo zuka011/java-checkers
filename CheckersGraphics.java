@@ -67,7 +67,7 @@ public class CheckersGraphics extends GCanvas {
 		}
 		
 		@Override
-	    public boolean equals(Object o)  {
+	    public boolean equals(Object obj)  {
 			
 			Coordinate other_coordinate = (Coordinate) o;
 						
