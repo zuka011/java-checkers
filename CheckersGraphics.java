@@ -372,18 +372,7 @@ public class CheckersGraphics extends GCanvas {
 			System.out.print("row: " + row + ", col: " + col + "\n");
 			
 			if(move) {
-				
-				HashSet<Coordinate> moves = possibleMoves(row, col);
-				
-				Iterator<Coordinate> moves_it = moves.iterator();
-				
-				while(moves_it.hasNext()) {
-					
-					System.out.println("HERE");
-					Coordinate curr_coordinate = moves_it.next();
-					highlightSquare(curr_coordinate.getRow(), curr_coordinate.getCol(), true, Color.YELLOW);
-				}
-				
+
 				highlightSquare(last_row, last_col, false);
 				moveChecker(last_row, last_col, row, col);
 				move = false;
