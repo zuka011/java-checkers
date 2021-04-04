@@ -238,6 +238,8 @@ public class CheckersGraphics extends GCanvas {
 		}
 	}
 	
+	private void 
+	
 	private void highlightSquare(int row, int col, boolean light) {
 		
 		if(light == highlight[row][col]) {
