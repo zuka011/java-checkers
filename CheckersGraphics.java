@@ -406,8 +406,8 @@ public class CheckersGraphics extends GCanvas {
 					
 					while(moves_it.hasNext()) {
 						
-						System.out.println("HERE");
-					System.out.println("Not a valid move.");
+						System.out.println();
+					System.out.println("Not a valid move. Valid Moves: ");
 				}
 
 				move = false;
