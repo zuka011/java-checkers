@@ -246,7 +246,7 @@ public class CheckersGraphics extends GCanvas {
 		
 		int player = checkers[start_row][start_col];
 		
-		int diff_col = reverse ? -1 : 1;
+		int diff_row = reverse ? -1 : 1;
 		
 		switch(player) {
 		
