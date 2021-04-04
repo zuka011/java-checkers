@@ -396,9 +396,11 @@ public class CheckersGraphics extends GCanvas {
 	private boolean reverse;
 	
 	private int last_row, last_col;
+	
 	private boolean move = false;
 	private double square_width;
 	private double square_height;
+	
 	private int [][] checkers = new int [N_ROWS][N_COLS];
 	private boolean [][] highlight = new boolean [N_ROWS][N_COLS];
 	
