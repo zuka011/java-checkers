@@ -118,7 +118,7 @@ public class CheckersGraphics extends GCanvas {
 			addCheckers(0, FIRST_PLAYER);	
 		} else {
 
-			addCheckers(N_ROWS - N_CHECKER_ROWS, FIRST_COLOR);	
+			addCheckers(N_ROWS - N_CHECKER_ROWS, SECOND_PLAYER);	
 			addCheckers(0, FIRST_PLAYER);
 		}
 		
