@@ -103,7 +103,7 @@ public class CheckersGraphics extends GCanvas {
 					
 				case FIRST_PLAYER_KING:
 					
-					
+					throw new Error();
 			}
 		}	
 	}
