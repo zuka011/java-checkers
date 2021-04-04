@@ -90,6 +90,7 @@ public class CheckersGraphics extends GCanvas {
 
 				inner_cirlce.setColor(Color.white);
 				mid_circle.setColor(Color.white);
+				break;
 			case SECOND_PLAYER:
 				
 				outer_circle.setFillColor(SECOND_COLOR);
