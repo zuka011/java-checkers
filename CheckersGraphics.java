@@ -107,8 +107,9 @@ public class CheckersGraphics extends GCanvas {
 					throw new Error();
 					
 				case SECOND_PLAYER_KING:
-					
-					System.out.println("")
+
+					System.out.println("Not yet implemented.");
+					throw new Error();
 			}
 		}	
 	}
