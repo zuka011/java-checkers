@@ -397,7 +397,7 @@ public class CheckersGraphics extends GCanvas {
 								
 				last_moves = possibleMoves(row, col);
 				
-				Iterator<Coordinate> moves_it = moves.iterator();
+				Iterator<Coordinate> moves_it = last_moves.iterator();
 				
 				while(moves_it.hasNext()) {
 					
