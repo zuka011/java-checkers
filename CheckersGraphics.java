@@ -245,7 +245,10 @@ public class CheckersGraphics extends GCanvas {
 		
 		int player = checkers[start_row][start_col];
 		
+		switch(player) {
 		
+		
+		}
 		
 		return null;
 	}
