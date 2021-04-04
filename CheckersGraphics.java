@@ -259,8 +259,9 @@ public class CheckersGraphics extends GCanvas {
 			if(inBounds(start_row + diff_row, start_col + 1)) possible_moves.add(new Coordinate(start_row + diff_row, start_col + 1));
 			break;
 		case SECOND_PLAYER:
-			
-			// ... Something ...
+
+			if(inBounds(start_row - diff_row, start_col - 1)) possible_moves.add(new Coordinate(start_row + diff_row, start_col - 1));
+			if(inBounds(start_row - diff_row, start_col + 1)) possible_moves.add(new Coordinate(start_row + diff_row, start_col + 1));
 			break;	
 		case FIRST_PLAYER_KING:
 		case SECOND_PLAYER_KING:
