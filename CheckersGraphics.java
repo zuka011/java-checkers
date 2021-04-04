@@ -80,7 +80,9 @@ public class CheckersGraphics extends GCanvas {
 			inner_cirlce.setFilled(true);
 			mid_circle.setFilled(true);
 			
-			if(player == FIRST_PLAYER) {
+			switch(player) {
+			
+			case FIRST_PLAYER:
 
 				outer_circle.setFillColor(FIRST_COLOR);
 				inner_cirlce.setFillColor(FIRST_COLOR);
@@ -88,7 +90,7 @@ public class CheckersGraphics extends GCanvas {
 
 				inner_cirlce.setColor(Color.white);
 				mid_circle.setColor(Color.white);
-			} else {
+			case SECOND_PLAYER:
 				
 				outer_circle.setFillColor(SECOND_COLOR);
 				inner_cirlce.setFillColor(SECOND_COLOR);
