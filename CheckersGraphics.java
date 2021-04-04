@@ -249,6 +249,10 @@ public class CheckersGraphics extends GCanvas {
 		
 		case EMPTY:
 			return possible_moves;
+			
+		case FIRST_PLAYER:
+		case SECOND_PLAYER:
+			
 		}
 		
 		return null;
