@@ -289,6 +289,7 @@ public class CheckersGraphics extends GCanvas {
 	
 	private boolean inBounds(double value, double low, double high) {
 		
+		return low <= value && value <= high;
 	}
 	
 	private Coordinate getSquare(double x, double y) {
