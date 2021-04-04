@@ -108,6 +108,7 @@ public class CheckersGraphics extends GCanvas {
 					
 				case SECOND_PLAYER_KING:
 					
+					System.out.println("")
 			}
 		}	
 	}
