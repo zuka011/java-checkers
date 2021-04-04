@@ -287,6 +287,8 @@ public class CheckersGraphics extends GCanvas {
 		return first < second ? first : second;
 	}
 	
+	private boolean inBounds(double value, )
+	
 	private Coordinate getSquare(double x, double y) {
 		
 		int col =  (int) (x / square_width);
