@@ -259,6 +259,8 @@ public class CheckersGraphics extends GCanvas {
 		case FIRST_PLAYER_KING:
 		case SECOND_PLAYER_KING:
 			
+			// ... Something ...
+			
 		}
 		
 		return null;
