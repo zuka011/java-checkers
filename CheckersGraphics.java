@@ -149,7 +149,7 @@ public class CheckersGraphics extends GCanvas {
 		add(square);
 	}
 
-	private void addCheckers(int start_row, Color checker_color) {
+	private void addCheckers(int start_row, int ) {
 		
 		boolean skip_first = start_row % 2 == 0;
 		
