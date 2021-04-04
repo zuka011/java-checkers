@@ -75,7 +75,7 @@ public class CheckersGraphics extends GCanvas {
 			inner_cirlce.setFilled(true);
 			mid_circle.setFilled(true);
 			
-			if(dark) {
+			if(player == FIRST_PLAYER) {
 				
 				outer_circle.setFillColor(SECOND_COLOR);
 				inner_cirlce.setFillColor(SECOND_COLOR);
