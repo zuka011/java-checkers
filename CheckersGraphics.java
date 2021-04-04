@@ -269,6 +269,7 @@ public class CheckersGraphics extends GCanvas {
 		HashSet<Coordinate> possible_moves = new HashSet<Coordinate>();
 		
 		int player = checkers[start_row][start_col];
+		if(player != EMPTY) 
 		
 		int diff_row = reverse ? 1 : -1;
 		
