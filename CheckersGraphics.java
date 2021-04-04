@@ -72,7 +72,7 @@ public class CheckersGraphics extends GCanvas {
 		static final double MID_SCALE = 0.47;
 		
 		String smth = " dada";
-		smth
+		smth.
 		
 		public Checker(double width, double height, final int player) {
 
