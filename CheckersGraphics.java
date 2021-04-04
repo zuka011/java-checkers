@@ -103,6 +103,7 @@ public class CheckersGraphics extends GCanvas {
 					
 				case FIRST_PLAYER_KING:
 					
+					System.out.println("Not yet implemented.");
 					throw new Error();
 			}
 		}	
