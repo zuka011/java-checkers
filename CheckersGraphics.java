@@ -113,7 +113,8 @@ public class CheckersGraphics extends GCanvas {
 					
 				default:
 					
-					System.out.println("");
+					System.out.println("Not a valid player type.");
+					throw new Error();
 			}
 		}	
 	}
