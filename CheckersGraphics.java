@@ -215,7 +215,7 @@ public class CheckersGraphics extends GCanvas {
 			
 		}else {
 			
-			System.out.print("Checker could not be moved from " new Coordinate(start_row, start_col) + " to [" + end_row + ", " + end_col + "]\n");
+			System.out.print("Checker could not be moved from " + new Coordinate(start_row, start_col) + " to [" + end_row + ", " + end_col + "]\n");
 		}
 	}
 	
