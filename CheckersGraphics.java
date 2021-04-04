@@ -10,6 +10,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashSet;
+import java.util.Iterator;
 
 @SuppressWarnings("serial")
 public class CheckersGraphics extends GCanvas {
@@ -375,6 +376,10 @@ public class CheckersGraphics extends GCanvas {
 				HashSet<Coordinate> moves = possibleMoves(row, col);
 				
 				Iterator<Coordinate> moves_it = moves.iterator();
+				
+				while(moves_it.hasNext()) {
+					
+				}
 				
 				highlightSquare(last_row, last_col, false);
 				moveChecker(last_row, last_col, row, col);
