@@ -113,6 +113,7 @@ public class CheckersGraphics extends GCanvas {
 					
 				default:
 					
+					System.out.println("");
 			}
 		}	
 	}
