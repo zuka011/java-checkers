@@ -163,7 +163,7 @@ public class CheckersGraphics extends GCanvas {
 		}
 	}
 
-	private void addChecker(int row, int col, Color checker_color) {
+	private void addChecker(int row, int col, final int player) {
 		
 		if(checkers[row][col] == EMPTY) {
 			
