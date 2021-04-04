@@ -400,7 +400,11 @@ public class CheckersGraphics extends GCanvas {
 				clearHighlights();
 				
 				if(last_moves.contains(new Coordinate(row, col))) moveChecker(last_row, last_col, row, col);
-				else System.out.println("Not a valid move.");
+				else {
+					
+					
+					System.out.println("Not a valid move.");
+				}
 
 				move = false;
 			}else {
