@@ -238,7 +238,7 @@ public class CheckersGraphics extends GCanvas {
 		}
 	}
 	
-	private void 
+	private 
 	
 	private void highlightSquare(int row, int col, boolean light) {
 		
