@@ -327,7 +327,7 @@ public class CheckersGraphics extends GCanvas {
 	
 	private boolean inBounds(int row, int col) {
 		
-		return 0 <= row && row < N_ROWS && 0 <= col && col < N_COL;
+		return 0 <= row && row < N_ROWS && 0 <= col && col < N_COLs;
 	}
 	
 	private Coordinate getSquare(double x, double y) {
