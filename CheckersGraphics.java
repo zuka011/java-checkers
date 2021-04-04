@@ -9,6 +9,7 @@ import acm.graphics.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.HashSet;
 
 @SuppressWarnings("serial")
 public class CheckersGraphics extends GCanvas {
@@ -240,6 +241,7 @@ public class CheckersGraphics extends GCanvas {
 	
 	private	HashSet<Coordinate> possibleMoves(int start_row, int start_col) {
 		
+		return null;
 	}
 	
 	private void highlightSquare(int row, int col, boolean light) {
