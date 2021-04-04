@@ -301,9 +301,9 @@ public class CheckersGraphics extends GCanvas {
 			
 			GRect highlighter_rect = new GRect(square_width, square_height);
 			
-			highlighter_rect.setColor(HIGHLIGHT_COLOR);
+			highlighter_rect.setColor(color);
 			highlighter_rect.setFilled(true);
-			highlighter_rect.setFillColor(HIGHLIGHT_COLOR);
+			highlighter_rect.setFillColor(color);
 
 			if(checkers[row][col] != EMPTY) {
 				
