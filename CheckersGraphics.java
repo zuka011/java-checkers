@@ -410,6 +410,8 @@ public class CheckersGraphics extends GCanvas {
 						
 						System.out.println(moves_it.next());
 					}
+					
+					System.out.println(new Coordinate(row, col).equals(new Coordinate(row, col)));
 				}
 
 				move = false;
