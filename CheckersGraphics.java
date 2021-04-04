@@ -393,6 +393,9 @@ public class CheckersGraphics extends GCanvas {
 					
 					moveChecker(last_row, last_col, row, col);
 					move = false;
+				} else {
+					
+					
 				}
 			}else {
 								
