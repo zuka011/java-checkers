@@ -43,11 +43,15 @@ public class CheckersGraphics extends GCanvas {
 			
 			return row;
 		}
+		
 		public int getCol() {
 			
 			return col;
 		}
 		
+		String toString() {
+			
+		}
 	}
 	
 	
