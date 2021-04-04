@@ -374,8 +374,8 @@ public class CheckersGraphics extends GCanvas {
 				
 				HashSet<Coordinate> moves = possibleMoves(row, col);
 				
-				Iterator<>
-				
+				Iterator<Coordinate> moves_it = moves.iterator()
+;				
 				highlightSquare(last_row, last_col, false);
 				moveChecker(last_row, last_col, row, col);
 				move = false;
