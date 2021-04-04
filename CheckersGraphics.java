@@ -83,39 +83,39 @@ public class CheckersGraphics extends GCanvas {
 			
 			switch(player) {
 			
-				case FIRST_PLAYER:
-	
-					outer_circle.setFillColor(FIRST_COLOR);
-					inner_cirlce.setFillColor(FIRST_COLOR);
-					mid_circle.setFillColor(Color.WHITE);
-	
-					inner_cirlce.setColor(Color.white);
-					mid_circle.setColor(Color.white);
-					break;
-				case SECOND_PLAYER:
-					
-					outer_circle.setFillColor(SECOND_COLOR);
-					inner_cirlce.setFillColor(SECOND_COLOR);
-					mid_circle.setFillColor(Color.WHITE);
-					
-					inner_cirlce.setColor(Color.white);
-					mid_circle.setColor(Color.white);
-					break;
-					
-				case FIRST_PLAYER_KING:
-					
-					System.out.println("Not yet implemented.");
-					throw new Error();
-					
-				case SECOND_PLAYER_KING:
+			case FIRST_PLAYER:
 
-					System.out.println("Not yet implemented.");
-					throw new Error();
-					
-				default:
-					
-					System.out.println("Not a valid player type.");
-					throw new Error();
+				outer_circle.setFillColor(FIRST_COLOR);
+				inner_cirlce.setFillColor(FIRST_COLOR);
+				mid_circle.setFillColor(Color.WHITE);
+
+				inner_cirlce.setColor(Color.white);
+				mid_circle.setColor(Color.white);
+				break;
+			case SECOND_PLAYER:
+				
+				outer_circle.setFillColor(SECOND_COLOR);
+				inner_cirlce.setFillColor(SECOND_COLOR);
+				mid_circle.setFillColor(Color.WHITE);
+				
+				inner_cirlce.setColor(Color.white);
+				mid_circle.setColor(Color.white);
+				break;
+				
+			case FIRST_PLAYER_KING:
+				
+				System.out.println("Not yet implemented.");
+				throw new Error();
+				
+			case SECOND_PLAYER_KING:
+
+				System.out.println("Not yet implemented.");
+				throw new Error();
+				
+			default:
+				
+				System.out.println("Not a valid player type.");
+				throw new Error();
 			}
 		}	
 	}
