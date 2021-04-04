@@ -238,7 +238,7 @@ public class CheckersGraphics extends GCanvas {
 		}
 	}
 	
-	private	Coordinate[] possibleWays() {
+	private	Coordinate[] possibleMoves(int star) {
 		
 	}
 	
