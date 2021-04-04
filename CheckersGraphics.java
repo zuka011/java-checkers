@@ -388,11 +388,14 @@ public class CheckersGraphics extends GCanvas {
 			if(move) {
 				
 				clearHighlights();
+				
+				
+				
 				moveChecker(last_row, last_col, row, col);
 				move = false;
 			}else {
 								
-				HashSet<Coordinate> moves = possibleMoves(row, col);
+				last_moves = possibleMoves(row, col);
 				
 				Iterator<Coordinate> moves_it = moves.iterator();
 				
