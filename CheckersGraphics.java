@@ -156,7 +156,7 @@ public class CheckersGraphics extends GCanvas {
 		for(int row = 0; row < N_CHECKER_ROWS; row++) {
 			
 			for(int col = skip_first ? 1 : 0; col < N_COLS; col += 2) {
-				addChecker(start_row + row, col, checker_color);
+				addChecker(start_row + row, col, player);
 				
 			}
 			skip_first = !skip_first;
