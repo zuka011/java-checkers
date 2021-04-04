@@ -436,6 +436,7 @@ public class CheckersGraphics extends GCanvas {
 	private boolean reverse;
 	
 	private int last_row, last_col;	
+	private HashSet<Coordinate> last_moves;
 	private boolean move = false;
 
 	private double square_width;
