@@ -389,10 +389,10 @@ public class CheckersGraphics extends GCanvas {
 				
 				clearHighlights();
 				
-				
-				
-				moveChecker(last_row, last_col, row, col);
-				move = false;
+				if(last_moves.contains(new Coordinate(row, col)) {
+					moveChecker(last_row, last_col, row, col);
+					move = false;
+				}
 			}else {
 								
 				last_moves = possibleMoves(row, col);
