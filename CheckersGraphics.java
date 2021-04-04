@@ -260,7 +260,7 @@ public class CheckersGraphics extends GCanvas {
 		case SECOND_PLAYER_KING:
 			
 			// ... Something ...
-			
+			break;
 		}
 		
 		return null;
