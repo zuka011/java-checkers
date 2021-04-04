@@ -62,7 +62,7 @@ public class CheckersGraphics extends GCanvas {
 			
 			System.out.println("Comparing " + this + " with " + other);
 			
-			return row == other.row && col == other.col;
+			return row == other_coordinate.row && col == other_coordinate.col;
 		}
 	}
 	
