@@ -76,19 +76,19 @@ public class CheckersGraphics extends GCanvas {
 			mid_circle.setFilled(true);
 			
 			if(player == FIRST_PLAYER) {
-				
-				outer_circle.setFillColor(SECOND_COLOR);
-				inner_cirlce.setFillColor(SECOND_COLOR);
-				mid_circle.setFillColor(Color.WHITE);
-				
-				inner_cirlce.setColor(Color.white);
-				mid_circle.setColor(Color.white);
-			} else {
 
 				outer_circle.setFillColor(FIRST_COLOR);
 				inner_cirlce.setFillColor(FIRST_COLOR);
 				mid_circle.setFillColor(Color.WHITE);
 
+				inner_cirlce.setColor(Color.white);
+				mid_circle.setColor(Color.white);
+			} else {
+				
+				outer_circle.setFillColor(SECOND_COLOR);
+				inner_cirlce.setFillColor(SECOND_COLOR);
+				mid_circle.setFillColor(Color.WHITE);
+				
 				inner_cirlce.setColor(Color.white);
 				mid_circle.setColor(Color.white);
 			}
