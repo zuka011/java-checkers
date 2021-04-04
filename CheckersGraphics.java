@@ -110,6 +110,9 @@ public class CheckersGraphics extends GCanvas {
 
 					System.out.println("Not yet implemented.");
 					throw new Error();
+					
+				default:
+					
 			}
 		}	
 	}
