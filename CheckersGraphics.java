@@ -198,7 +198,7 @@ public class CheckersGraphics extends GCanvas {
 			
 		}else {
 			
-			System.out.print("No checker found at [" + row + ", " + col +"]\n");
+			System.out.print("No checker found at " + new Coordinate(row, col).toString() + "\n");
 		}
 
 	}
