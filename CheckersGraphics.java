@@ -51,7 +51,7 @@ public class CheckersGraphics extends GCanvas {
 		
 		String toString() {
 			
-			return "[" + row + ", " + col +"];
+			return "[" + row + ", " + col +"]";
 		}
 	}
 	
