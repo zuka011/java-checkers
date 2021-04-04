@@ -180,8 +180,7 @@ public class CheckersGraphics extends GCanvas {
 		square.setFilled(filled);
 		square.setFillColor(SQUARE_COLOR);
 		
-		add(square);
-		
+		add(square);		
 	}
 
 	private void addCheckers(int start_row, final int player) {
