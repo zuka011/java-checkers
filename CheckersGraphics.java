@@ -55,6 +55,8 @@ public class CheckersGraphics extends GCanvas {
 			
 			return "[" + row + ", " + col +"]";
 		}
+		
+		public boolean equals()
 	}
 	
 	
