@@ -175,7 +175,6 @@ public class CheckersGraphics extends GCanvas {
 			
 			checkers[row][col] = player;
 			
-			}
 		}else {
 			
 			System.out.print("Could not add a checker\n");
