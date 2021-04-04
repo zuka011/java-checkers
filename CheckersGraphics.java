@@ -256,7 +256,7 @@ public class CheckersGraphics extends GCanvas {
 		case FIRST_PLAYER:
 
 			// ... Something ...
-			break'
+			break;
 		case SECOND_PLAYER:
 			
 			// ... Something ...
