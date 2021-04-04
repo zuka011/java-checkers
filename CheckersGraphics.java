@@ -51,6 +51,7 @@ public class CheckersGraphics extends GCanvas {
 		
 		String toString() {
 			
+			
 		}
 	}
 	
