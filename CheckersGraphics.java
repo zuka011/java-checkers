@@ -325,9 +325,9 @@ public class CheckersGraphics extends GCanvas {
 		return first < second ? first : second;
 	}
 	
-	private boolean inBounds(Coordinate coordinate) {
+	private boolean inBounds(int row, int col) {
 		
-		return low <= value && value <= high;
+		return 0 <= coordinate.getRow() && coor<= value && value <= high;
 	}
 	
 	private Coordinate getSquare(double x, double y) {
