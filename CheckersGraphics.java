@@ -82,7 +82,7 @@ public class CheckersGraphics extends GCanvas {
 			mid_circle.setFilled(true);
 			
 			switch(player) {
-			
+						
 			case FIRST_PLAYER:
 
 				outer_circle.setFillColor(FIRST_COLOR);
