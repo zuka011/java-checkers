@@ -292,7 +292,7 @@ public class CheckersGraphics extends GCanvas {
 		int col =  (int) (x / square_width);
 		int row = (int) (y / square_height);
 		
-		if(!inBounds(row) || !inBounds(col)) {
+		if(!inBounds(row, 0, N_ROWS) || !inBounds(col, 0, N_COLS)) {
 			
 			System.out.println("Coordinate not on board");
 			return new Coordinate(-1, -1);
