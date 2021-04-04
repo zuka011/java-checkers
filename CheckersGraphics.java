@@ -390,6 +390,7 @@ public class CheckersGraphics extends GCanvas {
 				clearHighlights();
 				
 				if(last_moves.contains(new Coordinate(row, col)) {
+					
 					moveChecker(last_row, last_col, row, col);
 					move = false;
 				}
