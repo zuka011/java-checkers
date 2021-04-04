@@ -243,7 +243,7 @@ public class CheckersGraphics extends GCanvas {
 		
 		HashSet<Coordinate> possible_moves = new HashSet<Coordinate>();
 		
-		
+		int player = checkers[start_row][start_col];
 		
 		return null;
 	}
