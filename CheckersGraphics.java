@@ -287,9 +287,9 @@ public class CheckersGraphics extends GCanvas {
 	
 	private void clearHighlights() {
 		
-		for(int i = 0; i < highlight.length; i++) {
-			for(int j = 0; j < highlight[i].length; j++) {
-				
+		for(int i = 0; i < N_ROWS; i++) {
+			for(int j = 0; j < N_COLS; j++) {
+				highlightSquare(i, j, )
 			}
 		}
 	}
