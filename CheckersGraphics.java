@@ -238,7 +238,7 @@ public class CheckersGraphics extends GCanvas {
 		}
 	}
 	
-	private	Coordinate[] possibleMoves(int start_row, int start_col) {
+	private	HashSet<Coordinate> possibleMoves(int start_row, int start_col) {
 		
 	}
 	
