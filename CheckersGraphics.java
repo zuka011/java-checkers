@@ -58,7 +58,7 @@ public class CheckersGraphics extends GCanvas {
 				
 		@Override
 		public int hashCode() {
-			final int row = 31;
+			final int prime = 31;
 			int result = 1;
 			result = prime * result + col;
 			result = prime * result + row;
