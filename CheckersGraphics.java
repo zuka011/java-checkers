@@ -317,7 +317,7 @@ public class CheckersGraphics extends GCanvas {
 			
 			Coordinate coordinate = getSquare(x, y);
 			
-			if(cooridnate.get)
+			if(coordinate.getRow() == -1) return;
 			
 			int row = coordinate.getRow();
 			int col = coordinate.getCol();
